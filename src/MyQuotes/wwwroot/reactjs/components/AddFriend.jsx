@@ -1,14 +1,13 @@
 import React from "react";
+import BaseComponent from "./BaseComponent.jsx!";
 
-
-export default class AddFriend extends React.Component {
+export default class AddFriend extends BaseComponent {
     constructor(props) {
         super(props);
         this.state = {
             name: ""
         }
-        this.onNameUpdate = this.onNameUpdate.bind(this);
-        this.addNewFriend = this.addNewFriend.bind(this);
+        this._bind("onNameUpdate", "addNewFriend");
     }
     
     onNameUpdate(e) {
