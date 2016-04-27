@@ -12591,13 +12591,17 @@ System.register("reactjs/components/AddFriend.jsx!github:floatdrop/plugin-jsx@1.
         onNameUpdate(e) {
           this.setState({name: e.target.value});
         }
+        addNewFriend() {
+          this.props.addNewFriend(this.state.name);
+          this.setState({name: ""});
+        }
         render() {
           return (React.createElement("div", null, React.createElement("label", {htmlFor: "name"}, "Add name:"), React.createElement("input", {
             type: "text",
             id: "name",
             value: this.state.name,
             onChange: this.onNameUpdate.bind(this)
-          }), React.createElement("button", null, "Add"), React.createElement("br", null), React.createElement("span", null, this.state.name)));
+          }), React.createElement("button", {onClick: this.addNewFriend.bind(this)}, "Add"), React.createElement("br", null), React.createElement("span", null, this.state.name)));
         }
       });
     }
@@ -12627,8 +12631,11 @@ System.register("reactjs/components/FriendsContainer.jsx!github:floatdrop/plugin
             friends: ["Chuck", "Mark", "Cj", "Cornell"]
           };
         }
+        addFriend(friend) {
+          this.setState({friends: this.state.friends.concat([friend])});
+        }
         render() {
-          return (React.createElement("div", null, React.createElement("h2", null, this.state.name), React.createElement(AddFriend, null), React.createElement(FriendsList, {friends: this.state.friends})));
+          return (React.createElement("div", null, React.createElement("h2", null, this.state.name), React.createElement(AddFriend, {addNewFriend: this.addFriend}), React.createElement(FriendsList, {friends: this.state.friends})));
         }
       };
       $__export('default', FriendsContainer);

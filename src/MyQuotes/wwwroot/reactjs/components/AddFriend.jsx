@@ -12,18 +12,21 @@ export default class AddFriend extends React.Component {
     onNameUpdate(e) {
         this.setState({
             name: e.target.value
+        });        
+    }
+    
+    addNewFriend() {
+        this.props.addNewFriend(this.state.name);
+        this.setState({
+            name: ""
         });
-        
-        this.props.AddNewFriend(e.target.value);
     }
     
     render() {
         return (<div>
             <label htmlFor="name">Add name:</label>
             <input type="text" id="name" value={this.state.name} onChange={this.onNameUpdate.bind(this)} />
-            <button>Add</button>
-            <br/>
-            <span>{this.state.name}</span>
+            <button onClick={this.addNewFriend.bind(this)}>Add</button>
         </div>);
     }
     

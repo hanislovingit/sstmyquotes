@@ -12,10 +12,16 @@ class FriendsContainer extends React.Component {
         };
     }
     
+    addFriend(friend) {
+        this.setState({
+           friends: this.state.friends.concat([friend]) 
+        });
+    }
+    
     render() {
         return (<div>
             <h2>{this.state.name}</h2>
-            <AddFriend />
+            <AddFriend addNewFriend={this.addFriend.bind(this)} />
             <FriendsList friends={this.state.friends} />
         </div>);
     }
