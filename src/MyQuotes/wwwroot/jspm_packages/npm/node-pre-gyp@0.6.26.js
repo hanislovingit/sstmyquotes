@@ -1,1 +1,0 @@
-module.exports = require("npm:node-pre-gyp@0.6.26/lib/node-pre-gyp.js");

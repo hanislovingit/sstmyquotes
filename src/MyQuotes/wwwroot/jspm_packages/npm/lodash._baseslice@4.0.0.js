@@ -1,1 +1,0 @@
-module.exports = require("npm:lodash._baseslice@4.0.0/index");

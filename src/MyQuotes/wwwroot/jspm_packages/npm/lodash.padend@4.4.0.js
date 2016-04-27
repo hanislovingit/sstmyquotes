@@ -1,1 +1,0 @@
-module.exports = require("npm:lodash.padend@4.4.0/index");

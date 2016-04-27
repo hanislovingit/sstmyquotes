@@ -1,1 +1,0 @@
-module.exports = require("npm:riot-cli@2.4.1/lib/index.js");
