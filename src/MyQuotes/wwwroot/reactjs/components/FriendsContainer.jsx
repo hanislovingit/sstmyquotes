@@ -8,7 +8,8 @@ class FriendsContainer extends React.Component {
         super();
         this.state = {
             name: "Chuck Han",
-            friends: ["Chuck", "Mark", "Cj", "Cornell"]
+            age: 30,
+            friends: []
         };
     }
     
@@ -20,7 +21,7 @@ class FriendsContainer extends React.Component {
     
     render() {
         return (<div>
-            <h2>{this.state.name}</h2>
+            <h2>{this.state.name}, {this.state.age}</h2>
             <AddFriend addNewFriend={this.addFriend.bind(this)} />
             <FriendsList friends={this.state.friends} />
         </div>);

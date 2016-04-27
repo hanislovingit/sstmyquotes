@@ -16,3 +16,7 @@ export default class FriendsList extends React.Component {
         </div>);
     }
 }
+
+FriendsList.defaultProps = {
+    friends: ["default", "friends", "list"]
+};

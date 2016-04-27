@@ -1,4 +1,6 @@
-﻿import React from "react";
+﻿import 'systemjs-hot-reloader/default-listener.js';
+
+import React from "react";
 import ReactDOM from "react-dom";
 
 import FriendsContainer from "./FriendsContainer.jsx!";

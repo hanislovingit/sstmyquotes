@@ -7,6 +7,8 @@ export default class AddFriend extends React.Component {
         this.state = {
             name: ""
         }
+        this.onNameUpdate = this.onNameUpdate.bind(this);
+        this.addNewFriend = this.addNewFriend.bind(this);
     }
     
     onNameUpdate(e) {
@@ -25,9 +27,13 @@ export default class AddFriend extends React.Component {
     render() {
         return (<div>
             <label htmlFor="name">Add name:</label>
-            <input type="text" id="name" value={this.state.name} onChange={this.onNameUpdate.bind(this)} />
-            <button onClick={this.addNewFriend.bind(this)}>Add</button>
+            <input type="text" id="name" value={this.state.name} onChange={this.onNameUpdate} />
+            <button onClick={this.addNewFriend}>Add</button>
         </div>);
     }
     
 }
+
+AddFriend.propTypes = {
+    addNewFriend: React.PropTypes.func.isRequired
+};
