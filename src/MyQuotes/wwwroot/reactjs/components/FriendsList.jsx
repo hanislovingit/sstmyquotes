@@ -6,8 +6,8 @@ export default class FriendsList extends React.Component {
     }
     
     render() {
-        const friends = this.props.friends.map(function (friend) {
-           return <li>{friend}</li>; 
+        const friends = this.props.friends.map(function (friend, index) {
+           return <li key={index}>{friend}</li>; 
         });
         return (<div>
             <ul>
