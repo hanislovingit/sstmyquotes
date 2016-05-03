@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNet.Routing;
+using Microsoft.AspNet.StaticFiles;
 using StructureMap;
 
 namespace MyQuotes
@@ -51,7 +52,10 @@ namespace MyQuotes
                 app.UseDeveloperExceptionPage();
                 app.UseRuntimeInfoPage("/Info");
             }
-            app.UseFileServer();
+
+            var fileServerOptions = new FileServerOptions();
+            fileServerOptions.StaticFileOptions.ServeUnknownFileTypes = true;
+            app.UseFileServer(fileServerOptions);
 
             app.UseMvc(configureRoutes);
 

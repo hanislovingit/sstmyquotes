@@ -2,7 +2,7 @@
 import riot from "riot";
 
 import {helloFromHome} from "./home";
-import "./main-nav.tag!";
+import "/tags/main-nav.tag!";
 
 $(function () {
     console.log("logging from jquery dom ready in main.js file!");
