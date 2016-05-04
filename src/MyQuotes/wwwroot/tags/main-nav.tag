@@ -10,7 +10,6 @@
             <a href="/ArchiveQuotes">Archive</a>
         </li>
     </ul>
-    <button><i class="fa fa-nav-icon"></i></button>
 
     <style>
         main-nav li {
