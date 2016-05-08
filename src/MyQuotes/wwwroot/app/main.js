@@ -1,6 +1,6 @@
 ﻿import $ from "jquery";
 import riot from "riot";
-import "bootstrap/css/bootstrap.css!";
+import "bootstrap/css/bootstrap.min.css!";
 
 
 import {helloFromHome} from "./home";

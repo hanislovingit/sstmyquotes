@@ -14,8 +14,7 @@
     <style scoped>
         :scope {
             border: 1px solid gray;
-            width: 300px;
-            height: 300px;
+            background-color: lightblue;
             display: block;
         }
     </style>
