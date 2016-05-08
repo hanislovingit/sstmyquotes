@@ -1,9 +1,11 @@
 ﻿import $ from "jquery";
 import riot from "riot";
+import "bootstrap/css/bootstrap.css!";
+
 
 import {helloFromHome} from "./home";
 import "/tags/main-nav.tag!";
-import "/tags/quote.tag!";
+import "/tags/m-quote.tag!";
 
 $(function () {
     console.log("logging from jquery dom ready in main.js file!");
