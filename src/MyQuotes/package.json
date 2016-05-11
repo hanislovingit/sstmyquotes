@@ -10,7 +10,9 @@
       "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
       "react": "npm:react@^15.0.1",
       "react-dom": "npm:react-dom@^15.0.1",
+      "redux": "npm:redux@^3.5.2",
       "riot": "npm:riot@^2.3.18",
+      "riot-redux-mixin": "npm:riot-redux-mixin@^1.0.0",
       "tag": "npm:systemjs-riot@^1.2.6"
     },
     "devDependencies": {

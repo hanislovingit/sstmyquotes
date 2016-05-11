@@ -23,7 +23,9 @@ System.config({
     "jsx": "github:floatdrop/plugin-jsx@1.2.1",
     "react": "npm:react@15.0.1",
     "react-dom": "npm:react-dom@15.0.1",
+    "redux": "npm:redux@3.5.2",
     "riot": "npm:riot@2.3.18",
+    "riot-redux-mixin": "npm:riot-redux-mixin@1.0.0",
     "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.5.7",
     "tag": "npm:systemjs-riot@1.2.6",
     "github:capaj/systemjs-hot-reloader@0.5.7": {
@@ -80,7 +82,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.2"
+      "process": "npm:process@0.11.3"
     },
     "github:jspm/nodelibs-punycode@0.1.0": {
       "punycode": "npm:punycode@1.3.2"
@@ -779,6 +781,10 @@ System.config({
     "npm:lodash.tostring@4.1.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:lodash@4.12.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:loose-envify@1.1.0": {
       "js-tokens": "npm:js-tokens@1.0.3",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -957,6 +963,9 @@ System.config({
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
+    "npm:process@0.11.3": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0"
+    },
     "npm:promise@7.1.1": {
       "asap": "npm:asap@2.0.3",
       "fs": "github:jspm/nodelibs-fs@0.1.2"
@@ -1050,6 +1059,13 @@ System.config({
       "private": "npm:private@0.1.6",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "source-map": "npm:source-map@0.5.4"
+    },
+    "npm:redux@3.5.2": {
+      "lodash": "npm:lodash@4.12.0",
+      "lodash-es": "npm:lodash-es@4.12.0",
+      "loose-envify": "npm:loose-envify@1.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "symbol-observable": "npm:symbol-observable@0.2.4"
     },
     "npm:regex-cache@0.4.3": {
       "is-equal-shallow": "npm:is-equal-shallow@0.1.3",
