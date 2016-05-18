@@ -11,6 +11,11 @@
         this.mixin('redux');
         this.mixin('actions');
         this.quotes = this.store.getState();
-        console.log(this.quotes);
+        //this.on('update', () => this.quotes = this.store.getState());
+
+        this.store.subscribe(() => {
+            this.quotes = this.store.getState();
+            this.update();
+        });            
     </script>
 </m-quote-list>

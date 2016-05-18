@@ -3,10 +3,10 @@ import riot from "riot";
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
 //import "bootstrap/css/bootstrap.min.css!";
-import {helloFromHome} from "./home";
 import "/tags/main-nav.tag!";
 import "/tags/m-quote-list.tag!";
 import "/tags/m-quote.tag!";
+import "/tags/m-quote-form.tag!";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
@@ -41,28 +41,6 @@ const searchReducer = (currentState = "", action) => {
 }
 
 const store = createStore(quotes);
-
-const quote = {
-    id: 1,
-    text: "my great quote",
-    author: "Mark twain",
-    createdOn: new Date(),
-    modifiedOn: null,
-    isArchived: false,
-    isFaved: false,
-    notes: ""
-}
-
-const action = {
-    type: "ADD_QUOTE",
-    payload: { }    // quote obj
-    
-}
-
-// $(function () {
-//     console.log("logging from jquery dom ready in main.js file!");
-//     helloFromHome("logging from home module");
-// });
 
 riot.mixin('redux', riotReduxMixin(store));
 riot.mixin('actions', actions);
