@@ -1,4 +1,4 @@
-<m-quote-form data-quote>
+<m-quote-form >
     <label for="txtQuote">Quote
         <textarea name="txtQuote" id="txtQuote" cols="30" rows="10" placeholder="type your quote here..." value={opts.dataQuote.text}></textarea>
     
@@ -41,6 +41,7 @@
     </style>
     
     <script>
+        debugger;
         this.mixin('redux');
         this.mixin('actions');
         
@@ -56,13 +57,12 @@
                 notes: this.txtNotes.value,
                 createdOn: this.createdOn || new Date(),
                 modifiedOn: new Date(),
-                id: this.quoteId,      
-            }
-            const action = this.opts.dataQuote ? editQuote(quote) || addQuote(quote);
+                id: this.quoteId   
+            };
+            
+            const action = this.opts.dataQuote ? editQuote(quote) : addQuote(quote);
             this.store.dispatch(action);
-        }
-
-
+        };
         
     </script>  
     
