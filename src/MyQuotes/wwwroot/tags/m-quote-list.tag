@@ -10,12 +10,8 @@
     <script>
         this.mixin('redux');
         this.mixin('actions');
-        this.quotes = this.store.getState();
-        //this.on('update', () => this.quotes = this.store.getState());
+        this.on('update', () => this.quotes = this.store.getState());
 
-        this.store.subscribe(() => {
-            this.quotes = this.store.getState();
-            this.update();
-        });            
+        this.store.subscribe(this.update);            
     </script>
 </m-quote-list>

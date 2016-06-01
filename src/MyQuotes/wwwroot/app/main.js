@@ -3,6 +3,7 @@ import riot from "riot";
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
 //import "bootstrap/css/bootstrap.min.css!";
+import "normalize.css/normalize.css!";
 import "/tags/main-nav.tag!";
 import "/tags/m-quote-list.tag!";
 import "/tags/m-quote.tag!";

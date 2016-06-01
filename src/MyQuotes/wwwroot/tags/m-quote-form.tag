@@ -1,50 +1,85 @@
-<m-quote-form >
-    <label for="txtQuote">Quote
-        <textarea name="txtQuote" id="txtQuote" cols="30" rows="10" placeholder="type your quote here..." value={opts.dataQuote.text}></textarea>
-    
+<m-quote-form>
+    <label for="txtQuote">
+        Quote
+        <textarea name="txtQuote" id="txtQuote" placeholder="type your quote here..." value={opts.dataQuote.text}></textarea>
+
     </label>
-    <label for="txtQuoteAuthor">Author
+    <label for="txtQuoteAuthor">
+        Author
         <input type="text" name="txtQuoteAuthor" placeholder="type author name here..." value={opts.dataQuote.author} />
     </label>
-    <label for="txtNotes">Notes
-        <textarea name="txtNotes" id="txtNotes" cols="30" rows="10" placeholder="type some notes here..." value={opts.dataQuote.notes}></textarea>
-    
+    <label for="txtNotes">
+        Notes
+        <textarea name="txtNotes" id="txtNotes" placeholder="type some notes here..." value={opts.dataQuote.notes}></textarea>
+
     </label>
-    <label for="chkFav">Favorite
-        <input type="checkbox" name="chkFav" checked={opts.dataQuote.isFaved} />
-    </label>
-    <label for="chkArchive">Archive
-        <input type="checkbox" name="chkArchive" checked={opts.dataQuote.isArchived} />
-    </label>
-    
+    <div class="flex-container">
+        <label for="chkFav" class="inline">
+            Favorite
+            <input type="checkbox" name="chkFav" checked={opts.dataQuote.isFaved} />
+        </label>
+        <label for="chkArchive" class="inline">
+            Archive
+            <input type="checkbox" name="chkArchive" checked={opts.dataQuote.isArchived} />
+        </label>
+    </div>
+
     <input type="hidden" name="quoteId" id="quoteId" value={opts.dataQuote.id || store.getState().length} />
     <input type="hidden" name="createdOn" value="{opts.dataQuote.createdOn}" />
-    
-    <button type="button">Cancel</button>
-    <button type="button" onclick="{saveQuote}">Save</button>
-    
-    
+
+    <div class="flex-container">
+        <button type="button">Cancel</button>
+        <button type="button" onclick="{saveQuote}">Save</button>
+    </div>
+
     <style scoped>
         :scope {
-            width: 90%;
             display: block;
+            padding: 15px;
         }
-        
+
         label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
             width: 100%;
             display: block;
+            border-radius: 5px;
+            border: 1px solid gray;
+            -webkit-appearance: none;
+            box-shadow: inset 0 0 15px -7px black;
+            line-height: 1.6em;
+            padding: 7px;
         }
-        
-        input, textarea {
-            display: block;
+
+        textarea {
+            min-height: 200px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        label.inline {
+            display: inline-block;
+            width: auto;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
-    
+
     <script>
-        debugger;
         this.mixin('redux');
         this.mixin('actions');
-        
+
         this.saveQuote = () => {
             // construst the quote obj
             // we already have our action creator
@@ -57,13 +92,12 @@
                 notes: this.txtNotes.value,
                 createdOn: this.createdOn || new Date(),
                 modifiedOn: new Date(),
-                id: this.quoteId   
+                id: this.quoteId
             };
-            
-            const action = this.opts.dataQuote ? editQuote(quote) : addQuote(quote);
+
+            const action = this.opts.dataQuote ? this.editQuote(quote) : this.addQuote(quote);
             this.store.dispatch(action);
         };
-        
-    </script>  
-    
+    </script>
+
 </m-quote-form>
