@@ -8,6 +8,7 @@ import "/tags/main-nav.tag!";
 import "/tags/m-quote-list.tag!";
 import "/tags/m-quote.tag!";
 import "/tags/m-quote-form.tag!";
+import "/tags/m-quote-container.tag!";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
