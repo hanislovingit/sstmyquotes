@@ -5,3 +5,15 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
+i.fa {
+  color: white;
+  text-shadow: 0 0 2px black;
+  font-size: 1.6rem;
+  vertical-align: middle;
+}
+
+i.fa.active {
+  color: goldenrod;
+}

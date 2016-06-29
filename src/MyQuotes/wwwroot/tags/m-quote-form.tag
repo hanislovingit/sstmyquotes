@@ -15,15 +15,18 @@
 
     </label>
     <div class="flex-container">
-        <label for="chkFav" class="inline">
+        <label for="favCtrl" class="inline" onclick={toggleFav} >
             Favorite
-            <input type="checkbox" name="chkFav" checked={opts.dataQuote.isFaved} />
+            <input type="hidden" name="favCtrl" id="favCtrl" value={isFaved ? "true" : "false" } />
+            <i class="fa fa-star {isFaved ? 'active' : '' }" />
         </label>
-        <label for="chkArchive" class="inline">
+        <label for="archiveCtrl" class="inline" onclick={toggleArchive} >
             Archive
-            <input type="checkbox" name="chkArchive" checked={opts.dataQuote.isArchived} />
+            <input type="hidden" name="archiveCtrl" id="archiveCtrl" value={isArchived ? "true" : "false" }  />
+            <i class="fa fa-archive {isArchived ? 'active' : '' }" />
         </label>
     </div>
+
 
     <input type="hidden" name="quoteId" id="quoteId" value={opts.dataQuote.id || store.getState().length} />
     <input type="hidden" name="createdOn" value="{opts.dataQuote.createdOn}" />
@@ -85,6 +88,7 @@
             justify-content: space-between;
         }
 
+
     </style>
 
     <script>
@@ -99,8 +103,8 @@
             const quote = {
                 text: this.txtQuote.value,
                 author: this.txtQuoteAuthor.value,
-                isArchived: this.chkArchive.checked,
-                isFaved: this.chkFav.checked,
+                isArchived: this.isArchived,
+                isFaved: this.isFaved,
                 notes: this.txtNotes.value,
                 createdOn: this.createdOn || new Date(),
                 modifiedOn: new Date(),
@@ -109,13 +113,13 @@
 
             const action = this.opts.dataQuote ? this.editQuote(quote) : this.addQuote(quote);
             this.store.dispatch(action);
-            this.root.trigger("save");
+            this.root.trigger("saveQuote");
             this.clearForm();
         }
 
         cancel() {
             this.clearForm();
-            this.root.trigger("cancel");
+            this.root.trigger("cancelQuote");
         }
 
         clearForm() {
@@ -126,11 +130,19 @@
             this.txtQuoteAuthor.value = '';
         }
 
-        this.root.on('hide', () => {
+        toggleFav() {
+            this.isFaved = !this.isFaved;
+        }
+
+        toggleArchive() {
+            this.isArchived = !this.isArchived;
+        }
+
+        this.root.on('hideQuoteForm', () => {
             this.root.classList.add("hidden");
         });
 
-        this.root.on('show', () => {
+        this.root.on('showQuoteForm', () => {
             this.root.classList.remove("hidden");
         });
     </script>

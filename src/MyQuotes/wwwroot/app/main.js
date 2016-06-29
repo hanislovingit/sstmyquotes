@@ -1,9 +1,8 @@
-﻿import $ from "jquery";
-import riot from "riot";
+﻿import riot from "riot";
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
-//import "bootstrap/css/bootstrap.min.css!";
 import "normalize.css/normalize.css!";
+import "font-awesome/css/font-awesome.min.css!";
 import "/tags/main-nav.tag!";
 import "/tags/m-quote-list.tag!";
 import "/tags/m-quote.tag!";

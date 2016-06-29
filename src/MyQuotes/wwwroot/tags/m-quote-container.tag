@@ -13,13 +13,13 @@
 
         this.on("mount", () => {            
             const quoteForm = this.tags["m-quote-form"].root;
-            quoteForm.on("save cancel", function () {
-                quoteForm.trigger('hide');
+            quoteForm.on("saveQuote cancelQuote", function () {
+                quoteForm.trigger('hideQuoteForm');
             });
         });
         
         showNewQuoteForm() {
-            this.tags['m-quote-form'].root.trigger('show');
+            this.tags['m-quote-form'].root.trigger('showQuoteForm');
         }
     </script>
 </m-quote-container>

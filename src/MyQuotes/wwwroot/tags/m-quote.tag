@@ -6,8 +6,8 @@
         {opts.dataQuote.modifiedOn}
     </time>
     <div>
-        <m-archive-icon data-archived={opts.dataQuote.isArchived} />
-        <m-fav-icon data-faved={opts.dataQuote.isFaved} />
+        <i class="fa fa-archive {opts.dataQuote.isArchived ? 'active' : '' }" onclick={toggleArchive} />
+        <i class="fa fa-star {opts.dataQuote.isFaved ? 'active' : '' }" onclick={toggleFav} />
     </div>
     <cite>{opts.dataQuote.author}</cite>
     
