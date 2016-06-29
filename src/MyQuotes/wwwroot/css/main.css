@@ -6,6 +6,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-size: 16px;
+  line-height: 1.6rem;
+}
 
 i.fa {
   color: white;
@@ -16,4 +20,10 @@ i.fa {
 
 i.fa.active {
   color: goldenrod;
+}
+
+button {
+  border-radius: 3px;
+  padding: .6rem 1rem;
+
 }
