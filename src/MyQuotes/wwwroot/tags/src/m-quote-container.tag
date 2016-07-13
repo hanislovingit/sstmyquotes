@@ -16,7 +16,7 @@
             });
         });
         
-        showNewQuoteForm() {
+        function showNewQuoteForm() {
             this.tags['m-quote-form'].root.trigger('showQuoteForm');
         }
     </script>

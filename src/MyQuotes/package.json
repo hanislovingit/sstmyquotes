@@ -1,7 +1,7 @@
 {
   "scripts": {
     "compile-tags": "riot --type babel -m wwwroot/tags/src/ wwwroot/tags/dist/",
-    "build-js": "jspm bundle-sfx wwwroot/app/main.js wwwroot/app/build.js --minify",
+    "build-js": "jspm bundle-sfx app/main.js app/build.js --minify",
     "watch": "riot --type babel -wm wwwroot/tags/src/ wwwroot/tags/dist/",
     "build": "npm run-script compile-tags && npm run-script build-js"
   },
@@ -10,9 +10,8 @@
       "baseURL": "wwwroot"
     },
     "dependencies": {
-      "css": "github:systemjs/plugin-css@^0.1.21",
       "font-awesome": "npm:font-awesome@^4.6.3",
-      "less": "github:aaike/jspm-less-plugin@^0.0.5",
+      "less": "npm:systemjs-less-plugin@^1.8.3",
       "normalize.css": "github:necolas/normalize.css@^4.1.1",
       "redux": "npm:redux@^3.5.2",
       "riot": "npm:riot@^2.3.18",

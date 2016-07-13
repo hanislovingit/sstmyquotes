@@ -39,6 +39,8 @@
         </fieldset>
     </form>
     <style scoped type="less">
+        @import url('../../css/main.less');
+
         :scope {
             display: block;
             padding: 0 1rem;
@@ -96,7 +98,7 @@
         this.mixin('actions');
         riot.observable(this.root);
 
-        save() {
+        function save() {
             // construst the quote obj
             // we already have our action creator
             // dispatch ADD_QUOTE action
@@ -117,12 +119,12 @@
             this.clearForm();
         }
 
-        cancel() {
+        function cancel() {
             this.clearForm();
             this.root.trigger("cancelQuote");
         }
 
-        clearForm() {
+        function clearForm() {
             this.quoteGreatForm.reset();
             
             // Because this fields value get turned into a literal interpretation of {...} 
@@ -132,11 +134,11 @@
             this.isArchived = false;
         }
 
-        toggleFav() {
+        function toggleFav() {
             this.isFaved = !this.isFaved;
         }
 
-        toggleArchive() {
+        function toggleArchive() {
             this.isArchived = !this.isArchived;
         }
 

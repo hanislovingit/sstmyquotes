@@ -17,9 +17,5 @@
         }
     </style>
 
-    <script>
-        this.on('mount', function() {
-            // do something...
-        });
-    </script>
+    
 </main-nav>

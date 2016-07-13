@@ -1,14 +1,12 @@
 ﻿import riot from "riot";
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
-import "/css/main.less!";
-import "normalize.css/normalize.css!";
-import "font-awesome/css/font-awesome.min.css!";
-import "/tags/main-nav.tag!";
-import "/tags/m-quote-list.tag!";
-import "/tags/m-quote.tag!";
-import "/tags/m-quote-form.tag!";
-import "/tags/m-quote-container.tag!";
+import "css/main.less!";
+import "tags/dist/main-nav";
+import "tags/dist/m-quote-list";
+import "tags/dist/m-quote";
+import "tags/dist/m-quote-form";
+import "tags/dist/m-quote-container";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),

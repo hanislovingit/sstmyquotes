@@ -18,9 +18,8 @@ System.config({
     "babel-preset-es2015-riot": "npm:babel-preset-es2015-riot@1.1.0",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
-    "css": "github:systemjs/plugin-css@0.1.23",
     "font-awesome": "npm:font-awesome@4.6.3",
-    "less": "github:aaike/jspm-less-plugin@0.0.5",
+    "less": "npm:systemjs-less-plugin@1.8.3",
     "normalize.css": "github:necolas/normalize.css@4.1.1",
     "redux": "npm:redux@3.5.2",
     "riot": "npm:riot@2.3.18",
@@ -28,9 +27,6 @@ System.config({
     "riot-redux-mixin": "npm:riot-redux-mixin@1.0.0",
     "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.5.7",
     "tag": "npm:systemjs-riot@1.2.6",
-    "github:aaike/jspm-less-plugin@0.0.5": {
-      "less.js": "github:distros/less@2.4.0"
-    },
     "github:capaj/systemjs-hot-reloader@0.5.7": {
       "debug": "npm:debug@2.2.0",
       "socket.io-client": "github:socketio/socket.io-client@1.4.5",

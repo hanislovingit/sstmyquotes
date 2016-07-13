@@ -2,15 +2,15 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'run-script',
-1 verbose cli   'build' ]
+1 verbose cli   'build-js' ]
 2 info using npm@2.14.12
 3 info using node@v4.3.1
-4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
-5 info prebuild @
-6 info build @
+4 verbose run-script [ 'prebuild-js', 'build-js', 'postbuild-js' ]
+5 info prebuild-js @
+6 info build-js @
 7 verbose unsafe-perm in lifecycle true
-8 info @ Failed to exec build script
-9 verbose stack Error: @ build: `npm run-script compile-tags && npm run-script build-js`
+8 info @ Failed to exec build-js script
+9 verbose stack Error: @ build-js: `jspm bundle-sfx app/main.js app/build.js --minify`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:214:16)
 9 verbose stack     at emitTwo (events.js:87:13)
@@ -23,17 +23,17 @@
 10 verbose pkgid @
 11 verbose cwd C:\VSTS_ChuckHan\MyQuotes\MyQuotes\src\MyQuotes
 12 error Windows_NT 10.0.10586
-13 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run-script" "build"
+13 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run-script" "build-js"
 14 error node v4.3.1
 15 error npm  v2.14.12
 16 error code ELIFECYCLE
-17 error @ build: `npm run-script compile-tags && npm run-script build-js`
+17 error @ build-js: `jspm bundle-sfx app/main.js app/build.js --minify`
 17 error Exit status 1
-18 error Failed at the @ build script 'npm run-script compile-tags && npm run-script build-js'.
+18 error Failed at the @ build-js script 'jspm bundle-sfx app/main.js app/build.js --minify'.
 18 error This is most likely a problem with the  package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
-18 error     npm run-script compile-tags && npm run-script build-js
+18 error     jspm bundle-sfx app/main.js app/build.js --minify
 18 error You can get their info via:
 18 error     npm owner ls
 18 error There is likely additional logging output above.
