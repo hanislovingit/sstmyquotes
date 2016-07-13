@@ -29,17 +29,16 @@
                 </label>
             </div>
 
-
             <input type="hidden" name="quoteId" id="quoteId" value={opts.dataQuote.id || store.getState().length} />
             <input type="hidden" name="createdOn" value="{opts.dataQuote.createdOn}" />
 
             <div class="flex-container">
-                <button type="button" onclick={cancel}>Cancel</button>
-                <button type="button" onclick="{save}">Save</button>
+                <button type="button" class="btn-secondary" onclick={cancel}>Cancel</button>
+                <button type="button" class="btn-primary" onclick="{save}">Save</button>
             </div>
         </fieldset>
     </form>
-    <style scoped>
+    <style scoped type="less">
         :scope {
             display: block;
             padding: 0 1rem;
@@ -48,6 +47,7 @@
             margin: 1rem 0;
             overflow: hidden;
             transition: max-height 0.6s ease-in-out;
+            background: @lightgray;
         }
         
         :scope.hidden {

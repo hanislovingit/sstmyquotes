@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "compile-tags": "riot --type babel -m wwwroot/tags/src/ wwwroot/tags/dist/",
+    "build-js": "jspm bundle-sfx wwwroot/app/main.js wwwroot/app/build.js --minify",
+    "watch": "riot --type babel -wm wwwroot/tags/src/ wwwroot/tags/dist/",
+    "build": "npm run-script compile-tags && npm run-script build-js"
+  },
   "jspm": {
     "directories": {
       "baseURL": "wwwroot"
@@ -6,14 +12,17 @@
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.21",
       "font-awesome": "npm:font-awesome@^4.6.3",
+      "less": "github:aaike/jspm-less-plugin@^0.0.5",
       "normalize.css": "github:necolas/normalize.css@^4.1.1",
       "redux": "npm:redux@^3.5.2",
       "riot": "npm:riot@^2.3.18",
+      "riot-compiler": "npm:riot-compiler@^2.5.2",
       "riot-redux-mixin": "npm:riot-redux-mixin@^1.0.0",
       "tag": "npm:systemjs-riot@^1.2.6"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
+      "babel-preset-es2015-riot": "npm:babel-preset-es2015-riot@^1.1.0",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7"

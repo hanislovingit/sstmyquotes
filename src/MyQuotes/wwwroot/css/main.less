@@ -1,0 +1,53 @@
+
+// color variables
+@white: #fafafa;
+@lightgray: #c3d7db;
+@black: #090a0a;
+@orange: #ff5d32;
+@blue: #0e6bd8;
+@yellow: #fed729;
+@darkgray: #2c3233;
+
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6rem;
+}
+
+i.fa {
+  color: @white;
+  text-shadow: 0 0 2px @black;
+  font-size: 1.6rem;
+  vertical-align: middle;
+}
+
+i.fa.active {
+  color: @yellow;
+}
+
+button {
+  border-radius: 0.6rem;
+  padding: .6rem 1rem;
+  background: @darkgray;
+  color: @white;
+  min-width: 6rem;
+}
+
+.btn-primary {
+    background: @blue;
+
+}
+
+.btn-secondary {
+    background: @orange;
+}
+

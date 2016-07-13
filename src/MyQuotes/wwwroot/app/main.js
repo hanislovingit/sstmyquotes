@@ -1,6 +1,7 @@
 ﻿import riot from "riot";
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
+import "/css/main.less!";
 import "normalize.css/normalize.css!";
 import "font-awesome/css/font-awesome.min.css!";
 import "/tags/main-nav.tag!";

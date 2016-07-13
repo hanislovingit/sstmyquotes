@@ -7,8 +7,6 @@
 
     <m-quote-list></m-quote-list>
 
-
-
     <script>
 
         this.on("mount", () => {            
