@@ -20,7 +20,6 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "font-awesome": "npm:font-awesome@4.6.3",
     "less": "npm:systemjs-less-plugin@1.8.3",
-    "normalize.css": "github:necolas/normalize.css@4.1.1",
     "redux": "npm:redux@3.5.2",
     "riot": "npm:riot@2.3.18",
     "riot-compiler": "npm:riot-compiler@2.5.2",

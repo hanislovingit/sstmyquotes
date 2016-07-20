@@ -18,7 +18,7 @@ this.on("mount", () => {
     });
 });
 
-function showNewQuoteForm() {
-    this.tags['m-quote-form'].root.trigger('showQuoteForm');
-}
+this.showNewQuoteForm = () => {
+    _this.tags['m-quote-form'].root.trigger('showQuoteForm');
+};
 });});

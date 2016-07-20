@@ -48,7 +48,7 @@
             max-height: 44rem;
             margin: 1rem 0;
             overflow: hidden;
-            transition: max-height 0.6s ease-in-out;
+            transition: max-height @transition;
             background: @lightgray;
         }
         
@@ -98,7 +98,7 @@
         this.mixin('actions');
         riot.observable(this.root);
 
-        function save() {
+        this.save = () => {
             // construst the quote obj
             // we already have our action creator
             // dispatch ADD_QUOTE action
@@ -119,12 +119,12 @@
             this.clearForm();
         }
 
-        function cancel() {
+        this.cancel = () => {
             this.clearForm();
             this.root.trigger("cancelQuote");
         }
 
-        function clearForm() {
+        this.clearForm = () => {
             this.quoteGreatForm.reset();
             
             // Because this fields value get turned into a literal interpretation of {...} 
@@ -134,11 +134,11 @@
             this.isArchived = false;
         }
 
-        function toggleFav() {
+        this.toggleFav = () => {
             this.isFaved = !this.isFaved;
         }
 
-        function toggleArchive() {
+        this.toggleArchive = () => {
             this.isArchived = !this.isArchived;
         }
 

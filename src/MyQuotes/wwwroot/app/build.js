@@ -1588,6 +1588,7 @@ var define = $__System.amdDefine;
     });
     this.root.on('showQuoteForm', () => {
       _this.root.classList.remove("hidden");
+      console.log("inside showQuoteForm");
     });
   });
 });

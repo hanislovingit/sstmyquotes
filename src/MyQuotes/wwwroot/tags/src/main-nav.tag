@@ -11,10 +11,27 @@
         </li>
     </ul>
 
-    <style>
-        main-nav li {
-            display: inline-block;
-        }
+    <style scoped type="less">
+         @import url('../../css/main.less');
+
+         :scope {
+             position: absolute;
+             //left: 100%;
+             right: 0;
+             top: 0;
+             min-height: 100%;
+             height: auto;
+             transition: right @transition;
+             box-shadow: 2px 0 12px 0 @black;
+             background: @trans-white;
+         }
+
+         .hidden {
+             right: -100%;
+
+         }
+
+         
     </style>
 
     

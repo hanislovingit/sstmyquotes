@@ -2,6 +2,7 @@
 import {createStore} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
 import "css/main.less!";
+import "font-awesome";
 import "tags/dist/main-nav";
 import "tags/dist/m-quote-list";
 import "tags/dist/m-quote";
