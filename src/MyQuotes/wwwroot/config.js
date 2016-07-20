@@ -25,13 +25,7 @@ System.config({
     "riot": "npm:riot@2.3.18",
     "riot-compiler": "npm:riot-compiler@2.5.2",
     "riot-redux-mixin": "npm:riot-redux-mixin@1.0.0",
-    "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.5.7",
     "tag": "npm:systemjs-riot@1.2.6",
-    "github:capaj/systemjs-hot-reloader@0.5.7": {
-      "debug": "npm:debug@2.2.0",
-      "socket.io-client": "github:socketio/socket.io-client@1.4.5",
-      "weakee": "npm:weakee@1.0.0"
-    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },

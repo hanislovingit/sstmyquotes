@@ -1,7 +1,7 @@
 {
   "scripts": {
     "compile-tags": "riot --type babel -m wwwroot/tags/src/ wwwroot/tags/dist/",
-    "build-js": "jspm bundle-sfx app/main.js app/build.js --minify",
+    "build-js": "jspm bundle-sfx app/main.js wwwroot/app/build.js",
     "watch": "riot --type babel -wm wwwroot/tags/src/ wwwroot/tags/dist/",
     "build": "npm run-script compile-tags && npm run-script build-js"
   },
@@ -23,12 +23,10 @@
       "babel": "npm:babel-core@^5.8.24",
       "babel-preset-es2015-riot": "npm:babel-preset-es2015-riot@^1.1.0",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7"
+      "core-js": "npm:core-js@^1.1.4"
     }
   },
   "devDependencies": {
-    "chokidar-socket-emitter": "^0.5.1",
     "jspm": "^0.16.33"
   }
 }
