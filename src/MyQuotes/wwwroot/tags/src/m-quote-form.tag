@@ -20,12 +20,12 @@
                 <label for="favCtrl" class="inline" onclick={toggleFav}>
                 Favorite
                 <input type="hidden" name="favCtrl" id="favCtrl" value={isFaved ? "true" : "false" } />
-                <i class="fa fa-star {isFaved ? 'active' : '' }" />
+                <i class="fa fa-star hollow {isFaved ? 'active' : '' }" />
                 </label>
                 <label for="archiveCtrl" class="inline" onclick={toggleArchive}>
                 Archive
                 <input type="hidden" name="archiveCtrl" id="archiveCtrl" value={isArchived ? "true" : "false" }  />
-                <i class="fa fa-archive {isArchived ? 'active' : '' }" />
+                <i class="fa fa-archive hollow {isArchived ? 'active' : '' }" />
                 </label>
             </div>
 
