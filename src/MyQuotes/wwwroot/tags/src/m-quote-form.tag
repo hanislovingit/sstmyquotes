@@ -142,12 +142,8 @@
             this.isArchived = !this.isArchived;
         }
 
-        this.root.on('hideQuoteForm', () => {
-            this.root.classList.add("hidden");
-        });
-
-        this.root.on('showQuoteForm', () => {
-            this.root.classList.remove("hidden");
+        this.root.on('toggleQuoteForm', () => {
+            this.root.classList.toggle("hidden");
         });
     </script>
 

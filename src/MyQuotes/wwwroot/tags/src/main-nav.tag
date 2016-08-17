@@ -1,4 +1,4 @@
-﻿<main-nav>
+﻿<main-nav class="hidden">
 
     <div class="toggle-nav" onclick={toggleNav}><i></i></div>
     <ul>
@@ -51,6 +51,7 @@
              background: @white;
              padding-top: 2rem;
              overflow: visible;
+             z-index: 2;
          }
 
          :scope.hidden {
@@ -69,7 +70,7 @@
          .toggle-nav {
              position: absolute;
              top: 0.5rem;
-             right: -2.5rem;
+             right: 1rem;
              transition: right @transition;
              z-index: 2;
              height: 2.5rem;
@@ -90,7 +91,7 @@
              transition: all @transition;
              
              transform: rotate(-45deg);
-             right: 3rem;
+             right: 0;
              top: 0.6rem;
          }
 
@@ -112,7 +113,7 @@
          }
 
          :scope.hidden .toggle-nav {
-            right: -2.5rem;
+            right: -3.5rem;
          }
 
          :scope.hidden .toggle-nav i {
