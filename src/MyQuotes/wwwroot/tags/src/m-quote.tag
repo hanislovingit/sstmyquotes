@@ -15,12 +15,8 @@
         @import url('../../css/main.less');
 
         :scope {
-            border: 1px solid gray;
-            background-color: lightblue;
-            display: inline-block;
-            min-width: 200px;
-            max-width: 200px;
-            border-radius: 5px;
+            background-color: @white;
+            width: 100%;
         }
 
     </style>
