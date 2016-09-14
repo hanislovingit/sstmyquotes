@@ -15,7 +15,7 @@ const actions = {
 }
 
 const quotes = (currentState = [
-    {id: 0, text: 'my nifty quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
+    {id: 0, text: 'If today were the last day of your life, would you want to do what you are able to do today?', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
     {id: 1, text: 'my spifffy quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
     {id: 2, text: 'my neat quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
     {id: 3, text: 'my favorite quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},        

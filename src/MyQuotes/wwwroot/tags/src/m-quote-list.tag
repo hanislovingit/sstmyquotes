@@ -11,25 +11,45 @@
  @import url('../../css/main.less');
 
         :scope {
-        }
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: block;
         }
 
         ul li {
-            flex: 1 1 0;
-            min-height: 12rem;
-            min-width: 18rem;
-            width: 18rem;
-            max-width: 24rem;
+            //flex: 0 0 0;
+            //min-width: 18rem;
+            display: inline-block;
+            width: 100%;
             border-radius: .6rem;
             box-shadow: 0 0 .6rem 0 #090a0a;
-            padding: .6rem;
-            margin: .6rem;
-        }
+            padding: 1.2rem;
+            margin: .6rem 0;
+    }
+
+// min-width means anything equal or bigger than the specified width will use these styles
+// extra small devices, phones
+// @media (min-width: 480px) {
+//         ul li {
+//             width: ~'calc(49% - 1rem)';
+//             margin: 0.6rem;
+//     }
+// }
+
+/* Small Devices, Tablets */
+@media (min-width : 768px) {
+    ul li {
+        //width: ~'calc(33% - 1.33rem)';
+            width: ~'calc(49% - 1rem)';
+            margin: 0.6rem;
+   }
+}
+
+/* Medium Devices, Desktops */
+@media (min-width : 992px) {
+    ul li {
+        width: ~'calc(25% - 1.2rem)';
+        max-width: 20rem;
+  }
+}
 
     </style>
 
