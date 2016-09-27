@@ -1,4 +1,4 @@
-<m-quote >
+﻿<m-quote >
     <blockquote>
         <yield/>
     </blockquote>
@@ -26,13 +26,9 @@
 
         }
 
-        // made good progress today on the layout of quote list for all screen sizes.
-        // We ended up ditching flex and used regular css width percentages and some media queries.
-        // We started working on formatting the quote card to make it look good. 
-        // Next we need to find a good font family for the quote marks.
         blockquote {
             height: 10rem;
-            //overflow: hidden;
+            overflow: hidden;
             
         }
 
@@ -41,14 +37,18 @@
             font-size: 4rem;
             color: @lightgray;
             font-family: 'Georgia', serif;
+            line-height: 0.6rem;
+            height: 0.3rem;
+            display: inline-block;
+            vertical-align: bottom;
         }
 
         blockquote:before {
-            content: open-quote;
+            content: '\201c';
         }
 
         blockquote:after {
-            content: close-quote;
+            content: '\201d';
         }
 
         cite {
@@ -65,5 +65,16 @@
     
     <script>
         this.mixin("redux");
+        this.toggleFav = () => {
+            const quote = this.opts.dataQuote;
+            quote.isFaved = !quote.isFaved;
+            this.store.dispatch({ type: 'EDIT_QUOTE', payload: quote })
+        }
+        this.toggleArchive = () => {
+            const quote = this.opts.dataQuote;
+            quote.isArchived = !quote.isArchived;
+            this.store.dispatch({ type: 'EDIT_QUOTE', payload: quote })
+        }
+
     </script>    
 </m-quote>

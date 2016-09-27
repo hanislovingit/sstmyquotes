@@ -29,8 +29,8 @@ const quotes = (currentState = [
         case "ADD_QUOTE":
             return [...currentState, action.payload];
         case "EDIT_QUOTE":
-            return currenState.map((quote) => {
-                return (quote.id === action.payload.id) ? payload : quote;
+            return currentState.map((quote) => {
+                return (quote.id === action.payload.id) ? action.payload : quote;
             })
         default:
             return currentState;        
