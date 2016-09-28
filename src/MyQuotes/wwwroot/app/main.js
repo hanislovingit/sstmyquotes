@@ -8,6 +8,7 @@ import "tags/dist/m-quote-list";
 import "tags/dist/m-quote";
 import "tags/dist/m-quote-form";
 import "tags/dist/m-quote-container";
+import "tags/dist/m-modal-curtain";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
