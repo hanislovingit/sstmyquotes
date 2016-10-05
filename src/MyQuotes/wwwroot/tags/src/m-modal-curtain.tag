@@ -7,6 +7,7 @@
     this.store.subscribe(this.update);
 
     this.containsOpenModal = () => {
+        debugger;
         const modals = [].concat(this.tags["m-modal"]);
         const currentOpenModal = this.store.getState().currentOpenModal;
 
@@ -36,7 +37,9 @@
     }
 
     :scope.visible {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 

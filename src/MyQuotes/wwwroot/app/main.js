@@ -1,5 +1,5 @@
 ﻿import riot from "riot";
-import {createStore} from "redux";
+import {createStore, combineReducers} from "redux";
 import riotReduxMixin from "riot-redux-mixin";
 import "css/main.less!";
 import "font-awesome";
@@ -9,40 +9,28 @@ import "tags/dist/m-quote";
 import "tags/dist/m-quote-form";
 import "tags/dist/m-quote-container";
 import "tags/dist/m-modal-curtain";
+import "tags/dist/m-modal";
+
+// import reducers
+import quotesReducer from "app/reducers/quotesReducer";
+import searchReducer from "app/reducers/searchReducer";
+import modalReducer from "app/reducers/modalReducer";
+
+
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
     editQuote: (quote) => ({type:'EDIT_QUOTE', payload: quote}) 
-}
+};
 
-const quotes = (currentState = [
-    {id: 0, text: 'If today were the last day of your life, would you want to do what you are able to do today?', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
-    {id: 1, text: 'my spifffy quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
-    {id: 2, text: 'my neat quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},
-    {id: 3, text: 'my favorite quote', author:'ME!!', createdOn: new Date(), modifiedOn: new Date(), isArchived: false, isFaved: false, notes:''},        
-], action) => {
-    switch(action.type) {
-        // Actions
-        // ----------------------
-        // ADD_QUOTE
-        // EDIT_QUOTE
-        // 
-        case "ADD_QUOTE":
-            return [...currentState, action.payload];
-        case "EDIT_QUOTE":
-            return currentState.map((quote) => {
-                return (quote.id === action.payload.id) ? action.payload : quote;
-            })
-        default:
-            return currentState;        
-    }
-}
 
-const searchReducer = (currentState = "", action) => {
-    
-}
+const combinedReducers = combineReducers({
+    quotes: quotesReducer,
+    searchReducer,
+    currentOpenModal: modalReducer
+});
 
-const store = createStore(quotes);
+const store = createStore(combinedReducers);
 
 riot.mixin('redux', riotReduxMixin(store));
 riot.mixin('actions', actions);

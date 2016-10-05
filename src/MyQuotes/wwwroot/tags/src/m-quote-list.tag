@@ -62,7 +62,7 @@
         // 
         this.mixin('redux');
         this.mixin('actions');
-        this.on('update', () => this.quotes = this.store.getState());
+        this.on('update', () => this.quotes = this.store.getState().quotes);
 
         this.store.subscribe(this.update);            
     </script>

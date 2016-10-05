@@ -1,4 +1,4 @@
-<m-quote-form class="hidden">
+<m-quote-form>
     <form id="quoteGreatForm">
         <fieldset>
             <legend>Add/Edit Quote</legend>
@@ -142,9 +142,9 @@
             this.isArchived = !this.isArchived;
         }
 
-        this.root.on('toggleQuoteForm', () => {
-            this.root.classList.toggle("hidden");
-        });
+        // this.root.on('toggleQuoteForm', () => {
+        //     this.root.classList.toggle("hidden");
+        // });
     </script>
 
 </m-quote-form>

@@ -9,7 +9,7 @@
 
     <i class="fa fa-plus interactive add-icon" onclick={toggleQuoteForm}></i>
     
-    <m-quote-form></m-quote-form>
+    
 
     <m-quote-list></m-quote-list>
 
@@ -44,20 +44,28 @@
         // to the contentEditable html elements to make them obvious to the user that 
         // those contents are editable.
 
+        this.mixin("redux");
+        this.store.subscribe(this.update);
 
         this.filterName = "Recent";
 
         this.on("mount", () => {            
-            this.quoteForm = this.tags["m-quote-form"].root;
+            //this.quoteForm = this.tags["m-quote-form"].root;
 
-            this.quoteForm.on("saveQuote cancelQuote", function () {
-                this.quoteForm.trigger('toggleQuoteForm');
-            });
+            // this.quoteForm.on("saveQuote cancelQuote", function () {
+            //     this.quoteForm.trigger('toggleQuoteForm');
+            // });
 
         });
         
         this.toggleQuoteForm = () => {
-            this.quoteForm.trigger('toggleQuoteForm');
+
+            this.store.dispatch({
+                type: "OPEN_MODAL",
+                id: "quote-form-modal"
+            });
+
+            //this.quoteForm.trigger('toggleQuoteForm');
         }
 
 
