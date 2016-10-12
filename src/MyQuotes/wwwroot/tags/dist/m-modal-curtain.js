@@ -15,7 +15,6 @@ this.mixin("redux");
 this.store.subscribe(this.update);
 
 this.containsOpenModal = () => {
-    debugger;
     const modals = [].concat(_this.tags["m-modal"]);
     const currentOpenModal = _this.store.getState().currentOpenModal;
 

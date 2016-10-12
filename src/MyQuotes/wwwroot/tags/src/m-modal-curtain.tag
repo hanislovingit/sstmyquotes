@@ -7,7 +7,6 @@
     this.store.subscribe(this.update);
 
     this.containsOpenModal = () => {
-        debugger;
         const modals = [].concat(this.tags["m-modal"]);
         const currentOpenModal = this.store.getState().currentOpenModal;
 
