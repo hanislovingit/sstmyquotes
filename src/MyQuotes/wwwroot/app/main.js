@@ -10,13 +10,15 @@ import "tags/dist/m-quote-form";
 import "tags/dist/m-quote-container";
 import "tags/dist/m-modal-curtain";
 import "tags/dist/m-modal";
+import "tags/dist/m-quote-field";
 
 // import reducers
 import quotesReducer from "app/reducers/quotesReducer";
 import searchReducer from "app/reducers/searchReducer";
 import modalReducer from "app/reducers/modalReducer";
 
-
+//import mixins
+import quoteFieldsMixin from "app/mixins/quoteFields";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
@@ -34,4 +36,5 @@ const store = createStore(combinedReducers);
 
 riot.mixin('redux', riotReduxMixin(store));
 riot.mixin('actions', actions);
+riot.mixin('quoteFields', quoteFieldsMixin);
 riot.mount("*");

@@ -2,15 +2,13 @@
     data-quote
 >
     <form id="quoteGreatForm">
-        <label for="txtQuote">
-        Quote
-        <div class="quoteContent" contenteditable="true" name="txtQuote" id="txtQuote" value={opts.dataQuote.text} onfocus="{onContentEditableFocus}" onblur="{onContentEditableBlur}" data-placeholder="Enter quote here...">Enter quote here...</div>
-
-        </label>
+        <m-quote-field data-label="Quote" data-value={opts.dataQuote.text} data-placeholder="Enter quote here..."></m-quote-field>
+        
         <label for="txtQuoteAuthor">
         Author
-        <input id="txtQuoteAuthor" type="text" name="txtQuoteAuthor" placeholder="type author name here..." value={opts.dataQuote.author} />
+        <div class="quote-author {opts.dataQuote.author? '':'empty'}" contenteditable="true" name="txtAuthor" id="txtAuthor" onfocus="{onContentEditableFocus}" onblur="{onContentEditableBlur}">{opts.dataQuote.author|| 'Enter quote author here...'}</div>
         </label>
+
         <label for="txtNotes">
         Notes
         <textarea name="txtNotes" id="txtNotes" placeholder="type some notes here..." value={opts.dataQuote.notes}></textarea>
@@ -71,14 +69,14 @@
             padding: .6rem;
         }
         
-        .quoteContent {
+        .quote-content {
             min-height: 12rem;
             border: 1px solid @black;
             border-radius: 0.3rem;
             padding: 0.6rem;
         }
 
-            .quoteContent:focus {
+            .quote-content:focus {
                 background: @white;
             }
         
