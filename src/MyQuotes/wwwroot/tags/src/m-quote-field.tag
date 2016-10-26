@@ -1,28 +1,32 @@
-<m-quote-field data-label data-value data-placeholder data-is-single-line>
+<m-quote-field 
+    data-label 
+    data-value 
+    data-placeholder 
+    data-is-single-line>
+
     {opts.dataLabel}
-    <div class="field-content" contenteditable="true" onfocus={update} onblur={update}>{getFieldValue()}</div>
-    <div>{getFieldValue()}</div>
+    <div class="comic-neue-angular field-content {value || isFocused() ? '' : 'show-placeholder'} {opts.dataIsSingleLine ? 'single-line' : ''}" contenteditable="true" data-placeholder-text={opts.dataPlaceholder} onfocus={update} onblur={update} >{value}</div>
 
     <script>
+
         this.on('mount', () => {
             this.value = this.opts.dataValue;
         });
 
         this.on('update', () => {
+            //console.log(this.value);
+            this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
+
             if(this.isMounted){
-                this.value = this.root.querySelector('.field-content').textContent;
+                // pure magic. You are welcome!
+                // No, not really. We had to use the following hack to make this work.
+                // The problem seemed to be that Riot tries to append the new value to the existing value.
+                this.fieldContent.innerHTML = this.value = this.fieldContent.innerHTML;
             }
         });
 
-        this.getFieldValue = () => {
-            if(this.value) return this.value;
-            if(this.isFocused()) return "";
-            return this.opts.dataPlaceholder;
-        };
+        this.isFocused = () => (!!this.root.querySelector(':focus'));
 
-        this.isFocused = () => {
-            return (!!this.root.querySelector(':focus'));
-        };
     </script>
 
     <style scoped type="less" >
@@ -30,9 +34,38 @@
 
         :scope{
             display: block;
-            border: 1px solid @black;
+            border: 1px solid @darkgray;
             border-radius: 0.3rem;
             padding: 0.6rem;
+            margin: 1rem 0;
         }
+
+        .field-content {
+            white-space: pre-wrap;
+            height: 20rem;
+            max-height: 30rem;
+            padding: 0.3rem;
+        }
+
+        .single-line {
+            white-space: nowrap;
+            height: 2.3rem;
+
+        }
+
+        .show-placeholder:before {
+            content: attr(data-placeholder-text);
+            font-style: italic;
+            color: @darkgray;
+        }
+
+
+        .comic-neue-angular {
+            font-family: 'Comic Neue Angular', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
     </style>
 </m-quote-field>

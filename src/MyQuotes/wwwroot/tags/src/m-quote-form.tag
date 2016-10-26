@@ -4,14 +4,9 @@
     <form id="quoteGreatForm">
         <m-quote-field data-label="Quote" data-value={opts.dataQuote.text} data-placeholder="Enter quote here..."></m-quote-field>
         
-        <label for="txtQuoteAuthor">
-        Author
-        <div class="quote-author {opts.dataQuote.author? '':'empty'}" contenteditable="true" name="txtAuthor" id="txtAuthor" onfocus="{onContentEditableFocus}" onblur="{onContentEditableBlur}">{opts.dataQuote.author|| 'Enter quote author here...'}</div>
-        </label>
-
-        <label for="txtNotes">
-        Notes
-        <textarea name="txtNotes" id="txtNotes" placeholder="type some notes here..." value={opts.dataQuote.notes}></textarea>
+        <m-quote-field data-label="Author" data-value={opts.dataQuote.author} data-is-single-line="true" data-placeholder="Enter author here..."></m-quote-field>
+        
+        <m-quote-field data-label="Notes" data-value={opts.dataQuote.notes} data-placeholder="Enter notes here about the quote..."></m-quote-field>
 
         </label>
         <div class="flex-container">
