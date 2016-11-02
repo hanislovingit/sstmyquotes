@@ -14,8 +14,12 @@
         width: 100%;
         height: 100%;
         margin: 0;
-        padding: 2rem;
+        padding: 1rem;
         background: @lightgray;
+    }
+
+    h2 {
+        margin: 0;
     }
 </style>
 

@@ -38,19 +38,20 @@
             border-radius: 0.3rem;
             padding: 0.6rem;
             margin: 1rem 0;
+            height: ~"calc((100% - 4rem - 5rem - 5rem) / 2)";
         }
 
         .field-content {
             white-space: pre-wrap;
-            height: 20rem;
-            max-height: 30rem;
+            height: ~"calc(100% - 1.5rem)";
             padding: 0.3rem;
+            overflow: hidden;
         }
 
-        .single-line {
+        :scope[data-is-single-line] {
             white-space: nowrap;
-            height: 2.3rem;
-
+            height: 5rem;
+            
         }
 
         .show-placeholder:before {

@@ -8,7 +8,6 @@
         
         <m-quote-field data-label="Notes" data-value={opts.dataQuote.notes} data-placeholder="Enter notes here about the quote..."></m-quote-field>
 
-        </label>
         <div class="flex-container">
             <label for="favCtrl" class="inline" onclick={toggleFav}>
             Favorite
@@ -25,7 +24,7 @@
         <input type="hidden" name="quoteId" id="quoteId" value={opts.dataQuote.id || store.getState().length} />
         <input type="hidden" name="createdOn" value="{opts.dataQuote.createdOn}" />
 
-        <div class="flex-container">
+        <div class="flex-container btn-container">
             <button type="button" class="btn-secondary" onclick={cancel}>Cancel</button>
             <button type="button" class="btn-primary" onclick="{save}">Save</button>
         </div>
@@ -35,19 +34,20 @@
 
         :scope {
             display: block;
-            padding: 0 1rem;
-            height: auto;
-            max-height: 44rem;
-            margin: 1rem 0;
             overflow: hidden;
             transition: max-height @transition;
             background: @lightgray;
+            height: ~"calc(100% - 1.55rem)";
         }
         
         :scope.hidden {
             max-height: 0;
         }
         
+        form {
+            height: 100%;
+        }
+
         label {
             display: block;
             margin-bottom: 1rem;
@@ -89,7 +89,15 @@
         .flex-container {
             display: flex;
             justify-content: space-between;
+            width: 100%;
         }
+
+        .btn-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+     }
     </style>
 
     <script>
