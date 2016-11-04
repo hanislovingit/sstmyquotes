@@ -1,2 +1,4 @@
 jspm_packages
 node_modules
+/src/MyQuotes/bin/Debug
+/src/MyQuotes/obj/Debug

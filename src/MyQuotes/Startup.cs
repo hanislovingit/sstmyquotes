@@ -1,29 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNet.Routing;
-using Microsoft.AspNet.StaticFiles;
 using StructureMap;
 
 namespace MyQuotes
 {
     public class Startup
     {
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public Startup(IHostingEnvironment env)
         {
-            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
-                .AddJsonFile("appSettings.json")
-                .AddJsonFile($"appSettings.{env.EnvironmentName}.json", true);
-
-            _configuration = configurationBuilder.Build();
+            _configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appSettings.{env.EnvironmentName}.json", true)
+                .Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -45,12 +46,12 @@ namespace MyQuotes
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment hostingEnvironment)
         {
-            app.UseIISPlatformHandler();
+            //app.UseIISPlatformHandler();
 
             if(hostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseRuntimeInfoPage("/Info");
+                //app.UseRuntimeInfoPage("/Info");
             }
 
             var fileServerOptions = new FileServerOptions();
@@ -73,6 +74,16 @@ namespace MyQuotes
         }
 
         // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+            .UseKestrel()
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .Build();
+
+            host.Run();
+        }
     }
 }
