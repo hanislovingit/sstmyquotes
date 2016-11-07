@@ -16,5 +16,11 @@ namespace MyQuotes.Controllers
 
             return View();
         }
+
+        [HttpGet("api/value/{id}")]
+        public int GetValue(int id)
+        {
+            return id;
+        }
     }
 }

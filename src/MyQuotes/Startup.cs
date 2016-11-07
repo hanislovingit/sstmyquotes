@@ -22,7 +22,7 @@ namespace MyQuotes
         {
             _configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.json", true)
                 .AddJsonFile($"appSettings.{env.EnvironmentName}.json", true)
                 .Build();
         }
@@ -33,6 +33,7 @@ namespace MyQuotes
         {
             services.AddMvc();
             services.AddSingleton(serviceProvider => _configuration);
+            services.AddSwaggerGen();
 
             // Add StructureMap as the IOC container
             Container IocContainer = new Container();
@@ -46,17 +47,17 @@ namespace MyQuotes
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment hostingEnvironment)
         {
-            //app.UseIISPlatformHandler();
-
             if(hostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseRuntimeInfoPage("/Info");
             }
 
             var fileServerOptions = new FileServerOptions();
             fileServerOptions.StaticFileOptions.ServeUnknownFileTypes = true;
             app.UseFileServer(fileServerOptions);
+
+            app.UseSwagger();
+            app.UseSwaggerUi();
 
             app.UseMvc(configureRoutes);
 
