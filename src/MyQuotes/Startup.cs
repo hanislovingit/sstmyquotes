@@ -61,10 +61,12 @@ namespace MyQuotes
 
             app.UseMvc(configureRoutes);
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            /*
+             * app.Run(async (context) =>
+             * {
+             *     await context.Response.WriteAsync("Hello World!");
+             * });
+             */
         }
 
         private static void configureRoutes(IRouteBuilder routeBuilder)

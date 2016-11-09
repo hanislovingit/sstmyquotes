@@ -27,5 +27,14 @@ this.on('update', () => {
     }
 });
 
+this.clearValue = () => {
+    _this.value = '';
+    _this.fieldContent.innerHTML = '';
+    _this.update();
+};
+
+this.getValue = () => _this.value.replace(/<[^\/]*>/g, '\n').replace(/<.*>/g, '');
+
 this.isFocused = () => !!_this.root.querySelector(':focus');
-});});
+});
+});

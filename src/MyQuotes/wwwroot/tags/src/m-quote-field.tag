@@ -25,6 +25,14 @@
             }
         });
 
+        this.clearValue = () => {
+          this.value = '';
+          this.fieldContent.innerHTML = '';
+          this.update();
+        }
+
+        this.getValue = () => this.value.replace(/<[^\/]*>/g, '\n').replace(/<.*>/g,'');
+
         this.isFocused = () => (!!this.root.querySelector(':focus'));
 
     </script>

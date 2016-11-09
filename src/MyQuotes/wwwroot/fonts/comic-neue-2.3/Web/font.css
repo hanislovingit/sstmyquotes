@@ -45,105 +45,105 @@
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Light.eot');
-  src: url('../fonts/ComicNeue-Light.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Light.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Light.woff') format('woff'),
-       url('../fonts/ComicNeue-Light.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Light.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Light.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light.ttf')  format('truetype');
   font-weight: 300;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Light-Oblique.eot');
-  src: url('../fonts/ComicNeue-Light-Oblique.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Light-Oblique.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Light-Oblique.woff') format('woff'),
-       url('../fonts/ComicNeue-Light-Oblique.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Light-Oblique.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Light-Oblique.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light-Oblique.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light-Oblique.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Light-Oblique.ttf')  format('truetype');
   font-weight: 300;
   font-style: oblique;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Regular.eot');
-  src: url('../fonts/ComicNeue-Regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Regular.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Regular.woff') format('woff'),
-       url('../fonts/ComicNeue-Regular.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular.ttf')  format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Regular-Oblique.eot');
-  src: url('../fonts/ComicNeue-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Regular-Oblique.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Regular-Oblique.woff') format('woff'),
-       url('../fonts/ComicNeue-Regular-Oblique.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular-Oblique.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular-Oblique.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular-Oblique.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Regular-Oblique.ttf')  format('truetype');
   font-weight: 400;
   font-style: oblique;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Bold.eot');
-  src: url('../fonts/ComicNeue-Bold.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Bold.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Bold.woff') format('woff'),
-       url('../fonts/ComicNeue-Bold.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold.ttf')  format('truetype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Bold-Oblique.eot');
-  src: url('../fonts/ComicNeue-Bold-Oblique.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Bold-Oblique.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Bold-Oblique.woff') format('woff'),
-       url('../fonts/ComicNeue-Bold-Oblique.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold-Oblique.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold-Oblique.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold-Oblique.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold-Oblique.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Bold-Oblique.ttf')  format('truetype');
   font-weight: 700;
   font-style: oblique;
 }
 
 @font-face {
   font-family: 'Comic Neue Angular';
-  src: url('../fonts/ComicNeue-Angular-Light.eot');
-  src: url('../fonts/ComicNeue-Angular-Light.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Angular-Light.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Angular-Light.woff') format('woff'),
-       url('../fonts/ComicNeue-Angular-Light.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light.ttf')  format('truetype');
   font-weight: 300;
 }
 
 @font-face {
   font-family: 'Comic Neue Angular';
-  src: url('../fonts/ComicNeue-Angular-Light-Oblique.eot');
-  src: url('../fonts/ComicNeue-Angular-Light-Oblique.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Angular-Light-Oblique.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Angular-Light-Oblique.woff') format('woff'),
-       url('../fonts/ComicNeue-Angular-Light-Oblique.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light-Oblique.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light-Oblique.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light-Oblique.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light-Oblique.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Light-Oblique.ttf')  format('truetype');
   font-weight: 300;
   font-style: oblique;
 }
 
 @font-face {
   font-family: 'Comic Neue Angular';
-  src: url('../fonts/ComicNeue-Angular-Regular.eot');
-  src: url('../fonts/ComicNeue-Angular-Regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Angular-Regular.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Angular-Regular.woff') format('woff'),
-       url('../fonts/ComicNeue-Angular-Regular.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular.ttf')  format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Comic Neue Angular';
-  src: url('../fonts/ComicNeue-Angular-Regular-Oblique.eot');
-  src: url('../fonts/ComicNeue-Angular-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ComicNeue-Angular-Regular-Oblique.woff2') format('woff2'),
-       url('../fonts/ComicNeue-Angular-Regular-Oblique.woff') format('woff'),
-       url('../fonts/ComicNeue-Angular-Regular-Oblique.ttf')  format('truetype');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular-Oblique.eot');
+  src: url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular-Oblique.woff2') format('woff2'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular-Oblique.woff') format('woff'),
+       url('/fonts/comic-neue-2.3/Web/ComicNeue-Angular-Regular-Oblique.ttf')  format('truetype');
   font-weight: 400;
   font-style: oblique;
 }

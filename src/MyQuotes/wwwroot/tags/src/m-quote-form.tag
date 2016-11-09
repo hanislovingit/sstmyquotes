@@ -2,11 +2,11 @@
     data-quote
 >
     <form id="quoteGreatForm">
-        <m-quote-field data-label="Quote" data-value={opts.dataQuote.text} data-placeholder="Enter quote here..."></m-quote-field>
+        <m-quote-field data-label="Quote" data-value={opts.dataQuote.text} data-value-name="text" data-placeholder="Enter quote here..."></m-quote-field>
         
-        <m-quote-field data-label="Author" data-value={opts.dataQuote.author} data-is-single-line="true" data-placeholder="Enter author here..."></m-quote-field>
+        <m-quote-field data-label="Author" data-value={opts.dataQuote.author} data-value-name="author" data-is-single-line="true" data-placeholder="Enter author here..."></m-quote-field>
         
-        <m-quote-field data-label="Notes" data-value={opts.dataQuote.notes} data-placeholder="Enter notes here about the quote..."></m-quote-field>
+        <m-quote-field data-label="Notes" data-value={opts.dataQuote.notes} data-value-name="notes" data-placeholder="Enter notes here about the quote..."></m-quote-field>
 
         <div class="flex-container">
             <label for="favCtrl" class="inline" onclick={toggleFav}>
@@ -110,15 +110,16 @@
             // we already have our action creator
             // dispatch ADD_QUOTE action
             const quote = {
-                text: this.txtQuote.value,
-                author: this.txtQuoteAuthor.value,
                 isArchived: this.isArchived,
                 isFaved: this.isFaved,
-                notes: this.txtNotes.value,
                 createdOn: this.createdOn || new Date(),
                 modifiedOn: new Date(),
                 id: this.quoteId
             };
+
+            this.tags['m-quote-field'].forEach(field => {
+              quote[field.opts.dataValueName] = field.getValue();
+            });
 
             // this.editQuote and this.addQuote are brought in by "actions" mixin
             const action = this.opts.dataQuote ? this.editQuote(quote) : this.addQuote(quote);
@@ -137,13 +138,12 @@
         }
 
         this.clearForm = () => {
-            this.quoteGreatForm.reset();
-            
             // Because this fields value get turned into a literal interpretation of {...} 
             // if we don't clear it manually.  Cause is unknown.
-            this.txtQuoteAuthor.value = '';
             this.isFaved = false;
             this.isArchived = false;
+            this.tags['m-quote-field'].forEach(field => field.clearValue());
+            this.update();
         }
 
         this.toggleFav = () => {
@@ -153,10 +153,6 @@
         this.toggleArchive = () => {
             this.isArchived = !this.isArchived;
         }
-
-        // this.root.on('toggleQuoteForm', () => {
-        //     this.root.classList.toggle("hidden");
-        // });
 
         this.onContentEditableFocus = (event) => {
             let isNewQuote = !this.opts.dataQuote;
