@@ -1,15 +1,10 @@
 <m-quote-container>
 
-
-    
-
     <main-nav></main-nav>
 
     <header>{filterName}</header>
 
     <i class="fa fa-plus interactive add-icon" onclick={toggleQuoteForm}></i>
-    
-    
 
     <m-quote-list></m-quote-list>
 
@@ -19,6 +14,7 @@
         :scope {
             position: relative;
             padding: 2rem;
+            min-height: 100%;
             display: block;
         }
 
