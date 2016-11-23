@@ -19,7 +19,7 @@
         
     }
 
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: @min-width) {
         :scope {
             width: 30rem;
             max-height: 50rem;

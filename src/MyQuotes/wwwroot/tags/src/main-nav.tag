@@ -1,22 +1,11 @@
 ﻿<main-nav class="hidden">
 
     <div class="toggle-nav" onclick={toggleNav}><i></i></div>
-    <ul>
-       
-        <li>
-            <a href="/">
-                <i class="fa fa-comments"></i> MynaQuotes
-            </a>
-        </li>
-        <li>
-           <span>My Quotes</span>
-        </li>
-       <li>
-          <button type="button" class="btn btn-primary">
-              <i class="fa fa-plus"></i> Add</button>
-       </li>
-       </ul>
-        <span class="nav-heading">Filters<span>
+    <div class="logo">
+        <a href="/">
+            <i class="fa fa-comments"></i> MynaQuotes
+        </a>
+    </div>
     <ul>
         <li>
             <span><i class="fa fa-star"></i>Favorites</span>
@@ -40,7 +29,6 @@
 
          :scope {
              position: absolute;
-             //left: 100%;
              left: 0;
              top: 0;
              min-height: 100%;
@@ -134,6 +122,34 @@
              transform: none;
          }
 
+         /* desktop view styles */
+         @media screen and (min-width: @min-width) {
+             :scope {
+                 width: 100%;
+                 height: 4rem;
+                 border: 1px solid red;
+                 min-height: 4rem;
+                 padding: 0.3rem;
+             }
+
+             :scope.hidden {
+                 left: 0;
+             }
+
+             .toggle-nav {
+                 display: none;
+             }
+
+             ul {
+                 float: right;
+             }
+
+             ul li {
+                 float: left;
+             }
+         }
+
+         
     </style>
 
    <script>
