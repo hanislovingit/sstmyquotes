@@ -46,7 +46,7 @@
             border-radius: 0.3rem;
             padding: 0.6rem;
             margin: 1rem 0;
-            height: ~"calc((100% - 4rem - 5rem - 5rem) / 2)";
+            height: ~"calc((100% - 5rem - 5rem - 5rem) / 2)";
         }
 
         .field-content {

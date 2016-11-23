@@ -16,6 +16,16 @@
         margin: 0;
         padding: 1rem;
         background: @lightgray;
+        
+    }
+
+    @media screen and (min-width: 500px) {
+        :scope {
+            width: 30rem;
+            max-height: 50rem;
+            border-radius: 0.6rem;
+            box-shadow: 0.2rem 0 2rem 0 @black;
+        }
     }
 
     h2 {

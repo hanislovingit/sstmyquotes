@@ -93,10 +93,9 @@
         }
 
         .btn-container {
-            position: absolute;
+            position: relative;
             bottom: 0;
             left: 0;
-            padding: 1rem;
      }
     </style>
 
