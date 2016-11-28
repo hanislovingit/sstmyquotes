@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using StructureMap;
+using NLog.Extensions.Logging;
 
 namespace MyQuotes
 {
@@ -45,8 +47,13 @@ namespace MyQuotes
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment hostingEnvironment)
+        public void Configure(IApplicationBuilder app, 
+            IHostingEnvironment hostingEnvironment,
+            ILoggerFactory loggerFactory)
         {
+            // add NLog to asp.net core
+            loggerFactory.AddNLog();
+
             if(hostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
