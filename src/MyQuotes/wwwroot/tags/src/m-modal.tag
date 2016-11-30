@@ -19,7 +19,7 @@
         
     }
 
-    @media screen and (min-width: @min-width) {
+    @media screen and (min-width: @ipad-height) {
         :scope {
             width: 30rem;
             max-height: 50rem;

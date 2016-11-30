@@ -26,9 +26,14 @@
         }
         
         header {
-        text-align: center;
+            text-align: center;
         }
 
+         @media screen and (min-width: @ipad-width) {
+            :scope {
+                margin-left: @nav-bar-width;
+            }            
+         }
     </style>
 
     <script>

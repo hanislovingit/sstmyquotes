@@ -6,49 +6,54 @@
             <i class="fa fa-comments"></i> MynaQuotes
         </a>
     </div>
-    <ul>
+    <ul class="menu">
+        
+        <li>
+            <span><i class="fa fa-home"></i>Home</span>
+        </li>
         <li>
             <span><i class="fa fa-star"></i>Favorites</span>
         </li>
         <li>
             <span><i class="fa fa-archive"></i>Archive</span>
         </li>
-        <li>
-            <span><i class="fa fa-history"></i>Recent</span>
-        </li>
-       <li>
-            <span><i class="fa fa-asterisk"></i>All</span>
-
-       </li>
     </ul>
-    <button type="button" class="btn btn-secondary btn-logout">
-              <i class="fa fa-sign-out"></i> Logout</button>
+
+
+    <ul class="user">
+        <li>
+            <span><i class="fa fa-user"></i>Chuck</span>
+        </li>
+        <li>
+            <span><i class="fa fa-sign-out"></i>Logout</span>
+        </li>
+    </ul>
 
     <style scoped type="less">
          @import url('../../css/main.less');
 
          :scope {
-             position: absolute;
+             position: fixed;
              left: 0;
              top: 0;
              min-height: 100%;
              height: auto;
-             width: 12rem;
+             width: @nav-bar-width;
              transition: all @transition;
              box-shadow: 2px 0 12px 0 @black;
              background: @white;
-             padding-top: 2rem;
+             padding: 4rem 1rem;
              overflow: visible;
              z-index: 2;
          }
 
          :scope.hidden {
-             left: -12rem;
+             left: -@nav-bar-width;
              box-shadow: none;
          }
 
          ul li {
-             padding: .3rem 1rem;
+             padding: .3rem 0;
          }
 
          ul li i {
@@ -122,30 +127,36 @@
              transform: none;
          }
 
+         .user {
+             position: absolute;
+             bottom: 0;
+             left: 1rem;
+             width: 100%;
+         }
+
          /* desktop view styles */
-         @media screen and (min-width: @min-width) {
+         @media screen and (min-width: @ipad-width) {
+
+             :scope:before {
+                 content: "";
+                 position: static;
+                 display: block;
+                 width: @nav-bar-width;
+                 height: 100%;
+             }
+
              :scope {
-                 width: 100%;
-                 height: 4rem;
-                 border: 1px solid red;
-                 min-height: 4rem;
-                 padding: 0.3rem;
+                 padding: 2rem 1rem;
              }
 
              :scope.hidden {
                  left: 0;
+                 box-shadow: 2px 0 12px 0 @black;
+
              }
 
              .toggle-nav {
                  display: none;
-             }
-
-             ul {
-                 float: right;
-             }
-
-             ul li {
-                 float: left;
              }
          }
 

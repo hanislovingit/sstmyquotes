@@ -8,7 +8,7 @@
     </ul>
     
     <style scoped type="less">
- @import url('../../css/main.less');
+        @import url('../../css/main.less');
 
         :scope {
             display: block;
@@ -23,33 +23,40 @@
             box-shadow: 0 0 .6rem 0 #090a0a;
             padding: 1.2rem;
             margin: .6rem 0;
-    }
+        }
 
-// min-width means anything equal or bigger than the specified width will use these styles
-// extra small devices, phones
-// @media (min-width: 480px) {
-//         ul li {
-//             width: ~'calc(49% - 1rem)';
-//             margin: 0.6rem;
-//     }
-// }
+        /*min-width means anything equal or bigger than the specified width will use these styles
+        extra small devices, phones*/
+        @media (min-width: 480px) {
+            ul li {
+                     width: ~'calc(49% - 1rem)';
+                     margin: 0.6rem;
+             }
+        }
 
-/* Small Devices, Tablets */
-@media (min-width : 768px) {
-    ul li {
-        //width: ~'calc(33% - 1.33rem)';
-            width: ~'calc(49% - 1rem)';
-            margin: 0.6rem;
-   }
-}
+        /* Small Devices, Tablets */
+        /*@media (min-width : @ipad-height) {
+            ul li {
+                    width: ~'calc(49% - 1rem)';
+                    margin: 0.6rem;
+            }
+        }*/
 
-/* Medium Devices, Desktops */
-@media (min-width : 992px) {
-    ul li {
-        width: ~'calc(25% - 1.2rem)';
-        max-width: 20rem;
-  }
-}
+        /* Medium Devices, Desktops */
+        @media (min-width : @ipad-width) {
+            ul li {
+                width: ~'calc(33% - 1.2rem)';
+                max-width: 20rem;
+            }
+        }
+
+        /* desktop view styles */
+         @media screen and (min-width: @desktop-width) {
+            ul li {
+                width: ~'calc(25% - 1.2rem)';
+                max-width: 20rem;
+            }
+         }
 
     </style>
 
