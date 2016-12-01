@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MyQuotes.Middleware;
 using StructureMap;
 using NLog.Extensions.Logging;
 
@@ -47,14 +48,16 @@ namespace MyQuotes
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
+        public void Configure(IApplicationBuilder app,
             IHostingEnvironment hostingEnvironment,
             ILoggerFactory loggerFactory)
         {
             // add NLog to asp.net core
             loggerFactory.AddNLog();
 
-            if(hostingEnvironment.IsDevelopment())
+            app.UseRequestLogger();
+
+            if (hostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -68,18 +71,18 @@ namespace MyQuotes
 
             app.UseMvc(configureRoutes);
 
-            /*
-             * app.Run(async (context) =>
-             * {
-             *     await context.Response.WriteAsync("Hello World!");
-             * });
-             */
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World from end of the pipe!");
+            });
+
         }
 
         private static void configureRoutes(IRouteBuilder routeBuilder)
         {
             routeBuilder.MapRoute(
-                "Default", 
+                "Default",
                 "{controller=Home}/{action=Index}/{id?}");
         }
 
