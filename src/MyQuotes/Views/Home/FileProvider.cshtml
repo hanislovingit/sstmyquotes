@@ -1,0 +1,22 @@
+﻿@using Microsoft.Extensions.FileProviders
+@model IDirectoryContents
+
+@{
+    ViewBag.Title = "MynaQuote - File Provider";
+}
+
+<h2>Folder contents</h2>
+
+<ul>
+    @foreach (IFileInfo item in Model)
+    {
+        if (item.IsDirectory)
+        {
+            <li><strong>@item.Name</strong></li>
+        }
+        else
+        {
+            <li>@item.Name - @item.Length bytes</li>
+        }
+    }
+</ul>

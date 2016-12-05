@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using MyQuotes.Middleware;
 using MyQuotes.Options;
@@ -21,6 +23,7 @@ namespace MyQuotes
     public class Startup
     {
         private readonly IConfiguration _configuration;
+        private IHostingEnvironment _hostingEnvironment;
 
         public Startup(IHostingEnvironment env)
         {
@@ -29,6 +32,8 @@ namespace MyQuotes
                 .AddJsonFile("appsettings.json", true)
                 .AddJsonFile($"appSettings.{env.EnvironmentName}.json", true)
                 .Build();
+
+            _hostingEnvironment = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -44,7 +49,15 @@ namespace MyQuotes
             services.AddMvc();
             services.AddSingleton(serviceProvider => _configuration);
             services.AddSwaggerGen();
-            
+
+            var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
+            var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
+            var compositeProvider = new CompositeFileProvider(physicalProvider, embeddedProvider);
+
+            // choose one file provider to use for the app and register it
+            services.AddSingleton<IFileProvider>(physicalProvider);
+            //services.AddSingleton<IFileProvider>(embeddedProvider);
+            services.AddSingleton<IFileProvider>(compositeProvider);
 
             // Add StructureMap as the IOC container
             Container IocContainer = new Container();
