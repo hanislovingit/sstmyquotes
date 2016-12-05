@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MyQuotes.Middleware;
+using MyQuotes.Options;
 using StructureMap;
 using NLog.Extensions.Logging;
 
@@ -34,9 +35,16 @@ namespace MyQuotes
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            // setup options with DI
+            services.AddOptions();
+
+            // configure TestOptions using config
+            services.Configure<TestOptions>(_configuration);
+
             services.AddMvc();
             services.AddSingleton(serviceProvider => _configuration);
             services.AddSwaggerGen();
+            
 
             // Add StructureMap as the IOC container
             Container IocContainer = new Container();
@@ -61,6 +69,9 @@ namespace MyQuotes
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // turn the following on later when we have custom error pages
+            //app.UseStatusCodePagesWithRedirects("~/errors/{0}");
 
             var fileServerOptions = new FileServerOptions();
             fileServerOptions.StaticFileOptions.ServeUnknownFileTypes = true;
