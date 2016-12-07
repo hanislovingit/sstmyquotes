@@ -23,7 +23,7 @@ namespace MyQuotes
     public class Startup
     {
         private readonly IConfiguration _configuration;
-        private IHostingEnvironment _hostingEnvironment;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
         public Startup(IHostingEnvironment env)
         {
@@ -40,7 +40,8 @@ namespace MyQuotes
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // setup options with DI
+            // setup options with DI. Options are placeholder objects
+            // for app settings.
             services.AddOptions();
 
             // configure TestOptions using config
@@ -50,22 +51,25 @@ namespace MyQuotes
             services.AddSingleton(serviceProvider => _configuration);
             services.AddSwaggerGen();
 
+            //services.AddTransient<IMyService, MyService>();
+
+            // file providers
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
             var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
             var compositeProvider = new CompositeFileProvider(physicalProvider, embeddedProvider);
 
             // choose one file provider to use for the app and register it
-            services.AddSingleton<IFileProvider>(physicalProvider);
+            //services.AddSingleton<IFileProvider>(physicalProvider);
             //services.AddSingleton<IFileProvider>(embeddedProvider);
             services.AddSingleton<IFileProvider>(compositeProvider);
 
             // Add StructureMap as the IOC container
-            Container IocContainer = new Container();
-            IocContainer.Populate(services);
+            var container = new Container();
+            container.Populate(services);
 
-            // Finally return IServiceProvider.  DNX uses the
+            // Finally return IServiceProvider.  CoreCLR uses the
             // SturtureMap containter to resolve services.
-            return IocContainer.GetInstance<IServiceProvider>();
+            return container.GetInstance<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,12 +81,13 @@ namespace MyQuotes
             loggerFactory.AddNLog();
 
             app.UseRequestLogger();
+            //app.UseMiddleware<RequestLoggerMiddleware>();
 
             if (hostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             // turn the following on later when we have custom error pages
             //app.UseStatusCodePagesWithRedirects("~/errors/{0}");
 
@@ -94,7 +99,6 @@ namespace MyQuotes
             app.UseSwaggerUi();
 
             app.UseMvc(configureRoutes);
-
 
             app.Run(async (context) =>
             {

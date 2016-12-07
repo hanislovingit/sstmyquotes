@@ -19,7 +19,7 @@
     "Microsoft.AspNetCore.Mvc.TagHelpers": "1.1.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
     "Microsoft.AspNetCore.StaticFiles": "1.1.0",
-    "StructureMap.Dnx": "1.2.0",
+    "StructureMap.Microsoft.DependencyInjection": "1.2.0", 
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
     "Microsoft.Extensions.Configuration.Json": "1.1.0",
@@ -36,7 +36,7 @@
   },
 
   "frameworks": {
-    "netcoreapp1.0": {
+    "netcoreapp1.1": {
       "imports": [ "dotnet5.6", "portable-net45+win8" ]
     }
   },
