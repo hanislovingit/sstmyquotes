@@ -9,11 +9,13 @@ namespace MyQuotes.Services
     public class Operation: IOperationTransient, 
         IOperationScoped, IOperationSingleton, IOperationSingletonInstance
     {
-        public Guid OperationId { get; }
-
-        public Operation(Guid operationId)
+        public Operation() : this(Guid.NewGuid())
         {
-            OperationId = operationId;
         }
+        public Operation(Guid id)
+        {
+            OperationId = id;
+        }
+        public Guid OperationId { get; private set; }
     }
 }

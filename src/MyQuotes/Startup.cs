@@ -11,10 +11,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using MyQuotes.Middleware;
 using MyQuotes.Options;
+using MyQuotes.Services;
+using MyQuotes.Services.Interfaces;
 using StructureMap;
 using NLog.Extensions.Logging;
 
@@ -51,7 +54,12 @@ namespace MyQuotes
             services.AddSingleton(serviceProvider => _configuration);
             services.AddSwaggerGen();
 
-            //services.AddTransient<IMyService, MyService>();
+            // custom services
+            services.AddTransient<IOperationTransient, Operation>();
+            services.AddScoped<IOperationScoped, Operation>();
+            services.AddSingleton<IOperationSingleton, Operation>();
+            services.AddSingleton<IOperationSingletonInstance>(new Operation(Guid.Empty));
+            services.AddTransient<IOperationService, OperationService>();
 
             // file providers
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;

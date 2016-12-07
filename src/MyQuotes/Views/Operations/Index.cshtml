@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "MynaQuotes - testing lifetimes";
+}
+
+<h2>Testing service lifetimes</h2>
+
+<h3>Controller Operations</h3>
+<ul>
+    <li><strong>Transient:</strong> @ViewBag.Transient.OperationId</li>
+    <li><strong>Scoped:</strong> @ViewBag.Scoped.OperationId</li>
+    <li><strong>Singleton:</strong> @ViewBag.Singleton.OperationId</li>
+    <li><strong>SingletonInstance:</strong> @ViewBag.SingletonInstance.OperationId</li>
+</ul>
+
+<h3>OperationService Operations</h3>
+<ul>
+    <li><strong>Transient:</strong> @ViewBag.Service.TransientOperation.OperationId</li>
+    <li><strong>Scoped:</strong> @ViewBag.Service.ScopedOperation.OperationId</li>
+    <li><strong>Singleton:</strong> @ViewBag.Service.SingletonOperation.OperationId</li>
+    <li><strong>SingletonInstance:</strong> @ViewBag.Service.SingletonInstanceOperation.OperationId</li>
+</ul>
