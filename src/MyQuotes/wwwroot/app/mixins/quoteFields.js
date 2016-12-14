@@ -1,5 +1,5 @@
 export default {
     testLog: function(){
-        console.log("Logging...");
+        console.log("Logging from quoteFields mixin...");
     }
 }

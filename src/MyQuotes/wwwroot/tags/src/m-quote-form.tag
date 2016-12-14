@@ -1,6 +1,4 @@
-<m-quote-form
-    data-quote
->
+<m-quote-form data-quote>
     <form id="quoteGreatForm">
         <m-quote-field data-label="Quote" data-value={opts.dataQuote.text} data-value-name="text" data-placeholder="Enter quote here..."></m-quote-field>
         
@@ -103,6 +101,11 @@
         this.mixin('redux');
         this.mixin('actions');
         //riot.observable(this.root);
+
+        this.on('update', () => {
+            this.quote = this.opts.dataQuote;
+            debugger;
+        });
 
         this.save = () => {
             // construst the quote obj

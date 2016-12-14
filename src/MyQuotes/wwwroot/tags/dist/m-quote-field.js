@@ -16,6 +16,9 @@ this.on('mount', () => {
 });
 
 this.on('update', () => {
+
+    //debugger;
+
     //console.log(this.value);
     _this.fieldContent = _this.fieldContent || _this.root.querySelector('.field-content');
 

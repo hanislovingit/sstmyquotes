@@ -18,6 +18,7 @@ var _this = this;
 //
 this.mixin('redux');
 this.mixin('actions');
+
 this.on('update', () => _this.quotes = _this.store.getState().quotes);
 
 this.store.subscribe(this.update);

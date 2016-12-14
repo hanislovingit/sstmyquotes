@@ -11,9 +11,13 @@
 
         this.on('mount', () => {
             this.value = this.opts.dataValue;
+            
         });
 
         this.on('update', () => {
+
+            //debugger;
+
             //console.log(this.value);
             this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
 

@@ -1,5 +1,12 @@
 <m-quote-container>
 
+    <m-modal-curtain>
+        <m-modal data-modal-title="Add/Edit Quote" id="quote-form-modal">
+            <m-quote-form data-quote={selectedQuote}></m-quote-form>
+        </m-modal>        
+    </m-modal-curtain>
+
+
     <main-nav></main-nav>
 
     <header>{filterName}</header>
@@ -57,6 +64,11 @@
             //     this.quoteForm.trigger('toggleQuoteForm');
             // });
 
+        });
+
+        this.on("update", () => {
+            this.selectedQuote = this.store.getState().selectedQuote;
+            debugger;
         });
         
         this.toggleQuoteForm = () => {

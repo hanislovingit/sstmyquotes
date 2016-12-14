@@ -15,6 +15,11 @@ this.mixin('redux');
 this.mixin('actions');
 //riot.observable(this.root);
 
+this.on('update', () => {
+    _this.quote = _this.opts.dataQuote;
+    debugger;
+});
+
 this.save = () => {
     // construst the quote obj
     // we already have our action creator

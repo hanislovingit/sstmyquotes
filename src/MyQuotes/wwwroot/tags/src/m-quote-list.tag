@@ -20,7 +20,7 @@
             display: inline-block;
             width: 100%;
             border-radius: .6rem;
-            box-shadow: 0 0 .6rem 0 #090a0a;
+            box-shadow: @shadow;
             padding: 1.2rem;
             margin: .6rem 0;
         }
@@ -69,6 +69,7 @@
         // 
         this.mixin('redux');
         this.mixin('actions');
+        
         this.on('update', () => this.quotes = this.store.getState().quotes);
 
         this.store.subscribe(this.update);            

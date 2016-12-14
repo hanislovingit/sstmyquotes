@@ -33,14 +33,14 @@
          @import url('../../css/main.less');
 
          :scope {
-             position: fixed;
+             position: absolute;
              left: 0;
              top: 0;
              min-height: 100%;
              height: auto;
              width: @nav-bar-width;
              transition: all @transition;
-             box-shadow: 2px 0 12px 0 @black;
+             box-shadow: @shadow;
              background: @white;
              padding: 4rem 1rem;
              overflow: visible;
@@ -107,6 +107,7 @@
 
          :scope.hidden .toggle-nav {
             right: -3.5rem;
+            position: absolute;
          }
 
          :scope.hidden .toggle-nav i {
@@ -149,15 +150,17 @@
                  padding: 2rem 1rem;
              }
 
+             /* scope.hidden is the default class */
              :scope.hidden {
                  left: 0;
-                 box-shadow: 2px 0 12px 0 @black;
-
+                 box-shadow: @shadow;
+                 position: fixed;
              }
 
              .toggle-nav {
                  display: none;
              }
+
          }
 
          

@@ -16,20 +16,22 @@ import "tags/dist/m-quote-field";
 import quotesReducer from "app/reducers/quotesReducer";
 import searchReducer from "app/reducers/searchReducer";
 import modalReducer from "app/reducers/modalReducer";
+import selectedQuoteReducer from "app/reducers/selectedQuoteReducer";
 
 //import mixins
 import quoteFieldsMixin from "app/mixins/quoteFields";
 
 const actions = {
     addQuote: (newQuote) => ({type:'ADD_QUOTE', payload: newQuote}),
-    editQuote: (quote) => ({type:'EDIT_QUOTE', payload: quote}) 
+    editQuote: (quote) => ({type:'EDIT_QUOTE', payload: quote}),
 };
 
 
 const combinedReducers = combineReducers({
     quotes: quotesReducer,
     searchReducer,
-    currentOpenModal: modalReducer
+    currentOpenModal: modalReducer,
+    selectedQuote: selectedQuoteReducer,
 });
 
 const store = createStore(combinedReducers);
