@@ -104,7 +104,6 @@
 
         this.on('update', () => {
             this.quote = this.opts.dataQuote;
-            debugger;
         });
 
         this.save = () => {
@@ -114,9 +113,9 @@
             const quote = {
                 isArchived: this.isArchived,
                 isFaved: this.isFaved,
-                createdOn: this.createdOn || new Date(),
+                createdOn: this.createdOn.value || new Date(),
                 modifiedOn: new Date(),
-                id: this.quoteId
+                id: this.quoteId.value
             };
 
             this.tags['m-quote-field'].forEach(field => {

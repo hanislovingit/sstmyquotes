@@ -16,7 +16,7 @@ this.on('mount', () => {
 });
 
 this.on('update', () => {
-
+    //console.log(this.opts.dataValue);
     //debugger;
 
     //console.log(this.value);

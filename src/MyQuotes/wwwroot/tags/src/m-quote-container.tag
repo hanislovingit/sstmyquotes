@@ -2,7 +2,7 @@
 
     <m-modal-curtain>
         <m-modal data-modal-title="Add/Edit Quote" id="quote-form-modal">
-            <m-quote-form data-quote={selectedQuote}></m-quote-form>
+            <m-quote-form data-quote={parent.parent.selectedQuote}></m-quote-form>
         </m-modal>        
     </m-modal-curtain>
 
@@ -68,7 +68,6 @@
 
         this.on("update", () => {
             this.selectedQuote = this.store.getState().selectedQuote;
-            debugger;
         });
         
         this.toggleQuoteForm = () => {

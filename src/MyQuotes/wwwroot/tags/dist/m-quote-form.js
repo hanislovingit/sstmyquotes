@@ -17,7 +17,6 @@ this.mixin('actions');
 
 this.on('update', () => {
     _this.quote = _this.opts.dataQuote;
-    debugger;
 });
 
 this.save = () => {
@@ -27,9 +26,9 @@ this.save = () => {
     const quote = {
         isArchived: _this.isArchived,
         isFaved: _this.isFaved,
-        createdOn: _this.createdOn || new Date(),
+        createdOn: _this.createdOn.value || new Date(),
         modifiedOn: new Date(),
-        id: _this.quoteId
+        id: _this.quoteId.value
     };
 
     _this.tags['m-quote-field'].forEach(field => {
