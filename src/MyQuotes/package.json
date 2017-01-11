@@ -26,7 +26,8 @@
     }
   },
   "devDependencies": {
-    "jspm": "^0.16.33"
+    "jspm": "^0.16.39",
+    "babel-preset-es2015-riot": "^1.1.0"
   },
   "dependencies": {}
 }

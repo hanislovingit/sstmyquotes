@@ -2,7 +2,6 @@
 
 <yield />
 
-
 <style scoped type="less">
     @import url('../../css/main.less');
 
