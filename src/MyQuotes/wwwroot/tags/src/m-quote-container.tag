@@ -11,7 +11,7 @@
 
     <header>{filterName}</header>
 
-    <i class="fa fa-plus interactive add-icon" onclick={toggleQuoteForm}></i>
+    <i class="fa fa-plus interactive add-icon" onclick={openNewQuoteForm}></i>
 
     <m-quote-list></m-quote-list>
 
@@ -70,8 +70,11 @@
             this.selectedQuote = this.store.getState().selectedQuote;
         });
         
-        this.toggleQuoteForm = () => {
-
+        this.openNewQuoteForm = () => {
+            this.store.dispatch({
+              type: "CLEAR_QUOTE"
+            });
+            
             this.store.dispatch({
                 type: "OPEN_MODAL",
                 id: "quote-form-modal"

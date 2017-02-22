@@ -19,7 +19,13 @@ this.on('update', () => {
     if (_this.isMounted) {
         console.log("before opts.datavalue:" + _this.opts.dataValue + " value:" + _this.value + " fieldContent.innerHTML:" + console.log(_this.fieldContent.innerHTML));
 
-        if (_this.fieldContent && _this.fieldContent.innerHTML) _this.value = _this.opts.dataValue = _this.fieldContent.innerHTML;else if (_this.opts.dataValue) _this.value = _this.fieldContent.innerHTML = _this.opts.dataValue;
+        if (_this.fieldContent && _this.fieldContent.innerHTML) {
+            _this.opts.dataValue = _this.fieldContent.innerHTML;
+            _this.value = _this.opts.dataValue;
+        } else if (_this.opts.dataValue) {
+            _this.fieldContent.innerHTML = _this.opts.dataValue;
+            _this.value = _this.opts.dataValue;
+        }
 
         console.log("after opts.datavalue:" + _this.opts.dataValue + " value:" + _this.value + " fieldContent.innerHTML:" + console.log(_this.fieldContent.innerHTML));
     }
@@ -29,7 +35,6 @@ this.clearValue = () => {
     _this.value = '';
     if (_this.fieldContent) _this.fieldContent.innerHTML = '';
     _this.opts.dataValue = '';
-    _this.update();
 };
 
 this.getValue = () => {

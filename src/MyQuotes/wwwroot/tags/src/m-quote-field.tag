@@ -10,17 +10,21 @@
     <script>
 
         this.on('mount', () => {
-            this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
+           this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
         })
 
         this.on('update', () => {
             if(this.isMounted){
                 console.log("before opts.datavalue:" + this.opts.dataValue + " value:" + this.value + " fieldContent.innerHTML:" + console.log(this.fieldContent.innerHTML));
 
-                if(this.fieldContent && this.fieldContent.innerHTML)
-                    this.value = this.opts.dataValue = this.fieldContent.innerHTML;
-                else if(this.opts.dataValue)
-                    this.value = this.fieldContent.innerHTML = this.opts.dataValue;
+                if (this.fieldContent && this.fieldContent.innerHTML) {
+                    this.opts.dataValue = this.fieldContent.innerHTML;
+                    this.value = this.opts.dataValue;
+                }
+                else if (this.opts.dataValue) {
+                    this.fieldContent.innerHTML = this.opts.dataValue;
+                    this.value = this.opts.dataValue;
+                }
 
                 console.log("after opts.datavalue:" + this.opts.dataValue + " value:" + this.value + " fieldContent.innerHTML:" + console.log(this.fieldContent.innerHTML));
             }
@@ -28,10 +32,8 @@
 
         this.clearValue = () => {
             this.value = '';
-            if (this.fieldContent)
-                this.fieldContent.innerHTML = '';
+            if (this.fieldContent) this.fieldContent.innerHTML = '';
             this.opts.dataValue = '';
-            this.update();
         }
 
         this.getValue = () => {

@@ -19,7 +19,7 @@
             </label>
         </div>
 
-        <input type="hidden" name="quoteId" id="quoteId" value={opts.dataQuote.id || store.getState().length} />
+        <input type="hidden" name="quoteId" id="quoteId" value={getQuoteId()} />
         <input type="hidden" name="createdOn" value="{opts.dataQuote.createdOn}" />
 
         <div class="flex-container btn-container">
@@ -107,6 +107,10 @@
             this.quote = this.opts.dataQuote;
         });
 
+        this.getQuoteId = () => {
+            return (this.opts.dataQuote && this.opts.dataQuote.id) || this.store.getState().quotes.length;
+        }
+
         this.save = () => {
             // construst the quote obj
             // we already have our action creator
@@ -116,7 +120,7 @@
                 isFaved: this.isFaved,
                 createdOn: this.createdOn.value || new Date(),
                 modifiedOn: new Date(),
-                id: this.quoteId.value
+                id: parseInt(this.quoteId.value)
             };
 
             this.tags['m-quote-field'].forEach(field => {
@@ -126,27 +130,27 @@
             // this.editQuote and this.addQuote are brought in by "actions" mixin
             const action = this.opts.dataQuote ? this.editQuote(quote) : this.addQuote(quote);
             this.store.dispatch(action);
-            this.clearForm();
+            //this.clearForm();
             this.store.dispatch({
                 type: "CLOSE_MODAL",                
             });
         }
 
         this.cancel = () => {
-            this.clearForm();
+            //this.clearForm();
             this.store.dispatch({
                 type: "CLOSE_MODAL",                
             });
         }
 
-        this.clearForm = () => {
-            // Because this fields value get turned into a literal interpretation of {...} 
-            // if we don't clear it manually.  Cause is unknown.
-            this.isFaved = false;
-            this.isArchived = false;
-            this.tags['m-quote-field'].forEach(field => field.clearValue());
-            this.update();
-        }
+        //this.clearForm = () => {
+        //    // Because this fields value get turned into a literal interpretation of {...} 
+        //    // if we don't clear it manually.  Cause is unknown.
+        //    this.isFaved = false;
+        //    this.isArchived = false;
+        //    this.tags['m-quote-field'].forEach(field => field.clearValue());
+        //    this.update();
+        //}
 
         this.toggleFav = () => {
             this.isFaved = !this.isFaved;
