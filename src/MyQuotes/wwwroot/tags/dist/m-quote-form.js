@@ -16,6 +16,7 @@ this.mixin('actions');
 //riot.observable(this.root);
 
 this.on('update', () => {
+    _this.tags['m-quote-field'].forEach(field => field.clearValue());
     _this.quote = _this.opts.dataQuote;
 });
 

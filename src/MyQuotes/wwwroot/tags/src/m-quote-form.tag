@@ -103,6 +103,7 @@
         //riot.observable(this.root);
 
         this.on('update', () => {
+            this.tags['m-quote-field'].forEach(field => field.clearValue());
             this.quote = this.opts.dataQuote;
         });
 

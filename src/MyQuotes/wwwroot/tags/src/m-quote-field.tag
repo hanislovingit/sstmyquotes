@@ -5,37 +5,39 @@
     data-is-single-line>
 
     {opts.dataLabel}
-    <div class="comic-neue-angular field-content {value || isFocused() ? '' : 'show-placeholder'} {opts.dataIsSingleLine ? 'single-line' : ''}" contenteditable="true" data-placeholder-text={opts.dataPlaceholder} onfocus={update} onblur={update} >{value}</div>
+    <div class="comic-neue-angular field-content {value || isFocused() ? '' : 'show-placeholder'} {opts.dataIsSingleLine ? 'single-line' : ''}" contenteditable="true" data-placeholder-text={opts.dataPlaceholder} onfocus={update} onblur={update}>{opts.dataValue}</div>
 
     <script>
 
         this.on('mount', () => {
-            this.value = this.opts.dataValue;
-            
-        });
+            this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
+        })
 
         this.on('update', () => {
-            //console.log(this.opts.dataValue);
-            //debugger;
-
-            //console.log(this.value);
-            this.fieldContent = this.fieldContent || this.root.querySelector('.field-content');
-
             if(this.isMounted){
-                // pure magic. You are welcome!
-                // No, not really. We had to use the following hack to make this work.
-                // The problem seemed to be that Riot tries to append the new value to the existing value.
-                this.fieldContent.innerHTML = this.value = this.fieldContent.innerHTML;
+                console.log("before opts.datavalue:" + this.opts.dataValue + " value:" + this.value + " fieldContent.innerHTML:" + console.log(this.fieldContent.innerHTML));
+
+                if(this.fieldContent && this.fieldContent.innerHTML)
+                    this.value = this.opts.dataValue = this.fieldContent.innerHTML;
+                else if(this.opts.dataValue)
+                    this.value = this.fieldContent.innerHTML = this.opts.dataValue;
+
+                console.log("after opts.datavalue:" + this.opts.dataValue + " value:" + this.value + " fieldContent.innerHTML:" + console.log(this.fieldContent.innerHTML));
             }
         });
 
         this.clearValue = () => {
-          this.value = '';
-          this.fieldContent.innerHTML = '';
-          this.update();
+            this.value = '';
+            if (this.fieldContent)
+                this.fieldContent.innerHTML = '';
+            this.opts.dataValue = '';
+            this.update();
         }
 
-        this.getValue = () => this.value.replace(/<[^\/]*>/g, '\n').replace(/<.*>/g,'');
+        this.getValue = () => {
+            this.update();
+            return this.value.replace(/<[^\/]*>/g, '\n').replace(/<.*>/g, '');
+        }
 
         this.isFocused = () => (!!this.root.querySelector(':focus'));
 

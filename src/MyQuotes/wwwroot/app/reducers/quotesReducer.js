@@ -16,9 +16,10 @@ export default (currentState = initialState, action) => {
         case "ADD_QUOTE":
             return [...currentState, action.payload];
         case "EDIT_QUOTE":
-            return currentState.map((quote) => {
+            currentState = currentState.map((quote) => {
                 return (quote.id === action.payload.id) ? action.payload : quote;
             })
+            return currentState;
         default:
             return currentState;        
     }
